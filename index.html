@@ -2,99 +2,233 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Personal Site</title>
-  <meta name="description" content="Portfolio and contact for Your Name." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Designer · Developer</title>
+  <meta name="description" content="Portfolio, projects, and contact for Your Name." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Your Name — Portfolio">
+  <meta property="og:description" content="Selected projects, writing, and ways to reach me.">
+  <meta property="og:image" content="og-image.jpg"> <!-- 1200x630 recommended -->
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
-    :root { --bg:#0b0b0f; --fg:#eef0f4; --muted:#a9b0bf; --card:#141826; --accent:#79ffe1; }
+    /* ===================
+       Design Tokens
+       =================== */
+    :root {
+      --bg: #0b0b0f;
+      --fg: #eef0f4;
+      --muted: #a9b0bf;
+      --card: #141826;
+      --line: #23283a;
+      --accent: #79ffe1;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    /* Light mode palette */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --fg: #0b1220;
+        --muted: #4a5568;
+        --card: #f7f9fc;
+        --line: #e6eaf3;
+        --accent: #0ea5e9;
+      }
+    }
+    /* Manual theme toggle overrides */
+    html[data-theme="light"] {
+      --bg: #ffffff; --fg:#0b1220; --muted:#4a5568; --card:#f7f9fc; --line:#e6eaf3; --accent:#0ea5e9;
+    }
+    html[data-theme="dark"] {
+      --bg:#0b0b0f; --fg:#eef0f4; --muted:#a9b0bf; --card:#141826; --line:#23283a; --accent:#79ffe1;
+    }
+
+    /* ===================
+       Base styles
+       =================== */
     * { box-sizing: border-box; }
-    body { margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+    a:hover, a:focus { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 24px clamp(16px, 3vw, 28px) 80px; }
+
+    /* Skip link for accessibility */
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:static; width:auto; height:auto; padding:8px 12px; border-radius:10px; background:var(--card); border:1px solid var(--line); }
+
+    /* ===================
+       Header / Nav
+       =================== */
     header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand { display:flex; align-items:center; gap:14px; }
-    .avatar { width:52px; height:52px; border-radius:50%; background:#222; object-fit:cover; }
+    .avatar { width:56px; height:56px; border-radius:50%; background:#222; object-fit:cover; border:1px solid var(--line); box-shadow: var(--shadow);
+    }
+    .title { font-weight:700; }
+    .tag { display:inline-block; padding:2px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); }
     nav a { margin-left:16px; font-weight:600; }
-    .hero { margin:64px 0 32px; }
-    h1 { font-size: clamp(32px, 5vw, 56px); line-height:1.1; margin:0 0 12px; }
-    h2 { font-size: 24px; margin: 28px 0 10px; }
-    p.lead { font-size: clamp(18px, 2.4vw, 20px); color:var(--muted); max-width: 70ch; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin-top: 18px; }
-    .card { background:var(--card); padding:16px; border-radius:16px; border:1px solid #23283a; }
-    .card h3 { margin:8px 0; font-size:18px; }
-    .tag { display:inline-block; padding:2px 8px; border:1px solid #2b3147; border-radius:999px; font-size:12px; color:var(--muted); }
-    footer { margin-top:64px; color:var(--muted); }
-    .btn { display:inline-block; margin-top:18px; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg,#1a2034,#12182a); border:1px solid #23283a; }
+
+    .theme-toggle {
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; background:var(--card); border:1px solid var(--line); border-radius:12px; cursor:pointer;
+    }
+
+    /* ===================
+       Sections
+       =================== */
+    .hero { margin: 56px 0 24px; }
+    h1 { font-size: clamp(32px, 6vw, 56px); line-height:1.1; margin:0 0 8px; }
+    p.lead { font-size: clamp(18px, 2.4vw, 20px); color:var(--muted); max-width: 72ch; }
+
+    h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 36px 0 12px; }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
+    .card { background:var(--card); padding:18px; border-radius:18px; border:1px solid var(--line); box-shadow: var(--shadow); transition: transform .15s ease;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .card h3 { margin:8px 0 6px; font-size:18px; }
+    .card p { margin: 0 0 10px; color: var(--muted); }
+    .card .links a { margin-right:12px; }
+
+    .btn { display:inline-block; margin-top:18px; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, rgba(26,32,52,.9), rgba(18,24,42,.9)); border:1px solid var(--line); }
+
+    footer { margin-top:56px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
     .socials a { margin-right:14px; }
-    @media (max-width: 640px) { nav { display:none; } }
+
+    /* Small screens: hide nav links; stack header */
+    @media (max-width: 640px) {
+      nav { display:none; }
+      header { align-items:flex-start; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="wrap">
     <header>
       <div class="brand">
-        <img class="avatar" src="avatar.jpg" alt="Your headshot" />
+        <img class="avatar" src="avatar.jpg" alt="Headshot of Your Name" />
         <div>
-          <strong>Your Name</strong><br />
+          <div class="title">Your Name</div>
           <span class="tag">Designer · Developer · Human</span>
         </div>
       </div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div>
+        <nav aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Toggle theme">🌗 Theme</button>
+      </div>
     </header>
 
-    <section class="hero">
-      <h1>Hi, I’m Your Name.</h1>
-      <p class="lead">I build clean, accessible web experiences and share what I learn. Currently at <a href="#">Company</a>, previously <a href="#">Elsewhere</a>. Open to interesting collaborations.</p>
-      <a class="btn" href="#contact">Get in touch</a>
-    </section>
+    <main id="main">
+      <section class="hero">
+        <h1>Hi, I’m Your Name.</h1>
+        <p class="lead">I build clean, accessible web experiences and share what I learn. Currently at <a href="#">Company</a>, previously <a href="#">Elsewhere</a>. Open to interesting collaborations.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+      </section>
 
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Project One</h3>
-          <p>One-liner about the value/outcome. <a href="#">Case study</a> · <a href="#">Live</a> · <a href="#">Code</a></p>
-        </article>
-        <article class="card">
-          <h3>Project Two</h3>
-          <p>Brief description and your role. <a href="#">Details</a></p>
-        </article>
-        <article class="card">
-          <h3>Project Three</h3>
-          <p>A sentence or two to tease the work. <a href="#">More</a></p>
-        </article>
-      </div>
-    </section>
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Selected Projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Project One</h3>
+            <p>One-liner about the outcome/impact.
+            </p>
+            <p class="links"><a href="#">Case study</a><a href="#">Live</a><a href="#">Code</a></p>
+          </article>
+          <article class="card">
+            <h3>Project Two</h3>
+            <p>Brief description and your role.
+            </p>
+            <p class="links"><a href="#">Details</a></p>
+          </article>
+          <article class="card">
+            <h3>Project Three</h3>
+            <p>A sentence to tease the work.
+            </p>
+            <p class="links"><a href="#">More</a></p>
+          </article>
+        </div>
+      </section>
 
-    <section id="writing">
-      <h2>Writing</h2>
-      <div class="grid">
-        <article class="card"><h3>How I built X</h3><p>Short description. <a href="#">Read</a></p></article>
-        <article class="card"><h3>Notes on Y</h3><p>Short description. <a href="#">Read</a></p></article>
-      </div>
-    </section>
+      <section id="writing" aria-labelledby="writing-title">
+        <h2 id="writing-title">Writing</h2>
+        <div class="grid">
+          <article class="card"><h3>How I built X</h3><p>Short description.</p><p class="links"><a href="#">Read</a></p></article>
+          <article class="card"><h3>Notes on Y</h3><p>Short description.</p><p class="links"><a href="#">Read</a></p></article>
+        </div>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Best way to reach me: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p class="socials">
-        <a href="https://github.com/yourhandle">GitHub</a>
-        <a href="https://www.linkedin.com/in/yourhandle">LinkedIn</a>
-        <a href="https://twitter.com/yourhandle">Twitter/X</a>
-      </p>
-    </section>
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>Reach me at <a href="mailto:you@example.com">you@example.com</a> — I read every email.</p>
+        <p class="socials">
+          <a href="https://github.com/yourhandle" aria-label="GitHub profile">GitHub</a>
+          <a href="https://www.linkedin.com/in/yourhandle" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="https://twitter.com/yourhandle" aria-label="Twitter profile">Twitter/X</a>
+        </p>
+      </section>
+    </main>
 
     <footer>
-      © <span id="y"></span> Your Name — Built with HTML/CSS. 
-      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+      <span>© <span id="y"></span> Your Name</span>
+      <span>Built with HTML/CSS • Hosted on GitHub Pages</span>
     </footer>
   </div>
+
+  <script>
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function(){
+      const key = 'theme-preference';
+      const btn = document.getElementById('themeToggle');
+      const getPreference = () => localStorage.getItem(key);
+      const apply = (theme) => document.documentElement.setAttribute('data-theme', theme);
+      const set = (theme) => { localStorage.setItem(key, theme); apply(theme); };
+
+      const saved = getPreference();
+      if (saved) apply(saved);
+
+      btn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        btn.setAttribute('aria-pressed', String(next === 'dark'));
+        set(next);
+      });
+    })();
+  </script>
+
+  <!-- Optional: Structured data for richer search results. Replace placeholders. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://yourusername.github.io/",
+    "sameAs": [
+      "https://github.com/yourhandle",
+      "https://www.linkedin.com/in/yourhandle",
+      "https://twitter.com/yourhandle"
+    ]
+  }
+  </script>
 </body>
 </html>
