@@ -3,84 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Research Portfolio</title>
-  <meta name="description" content="Introduction, selected projects, notes, and publications by Your Name." />
-
+  <title>Christine Wu — Research Portfolio</title>
+  <meta name="description" content="Introduction, selected projects, notes, and publications by Christine Wu." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
 
   <style>
     :root {
-      --bg: #f8fafc;          /* light background */
-      --surface: #ffffff;      /* cards */
-      --fg: #0f172a;           /* text */
-      --muted: #475569;        /* secondary text */
-      --line: #e2e8f0;         /* borders */
-      --accent: #0ea5e9;       /* blue */
-      --accent-ink: #075985;   /* dark blue */
-      --shadow: 0 8px 24px rgba(2, 6, 23, .08);
+      --bg:#f8fafc; --surface:#fff; --fg:#0f172a; --muted:#475569;
+      --line:#e2e8f0; --accent:#0ea5e9; --accent-ink:#075985; --shadow:0 8px 24px rgba(2,6,23,.08);
     }
-    html[data-theme="dark"] {
-      --bg: #0b1020; --surface:#0f172a; --fg:#e5e7eb; --muted:#9aa4b2; --line:#1f2937; --accent:#38bdf8; --accent-ink:#e0f2fe; --shadow:0 8px 24px rgba(0,0,0,.35);
-    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+           background:var(--bg); color:var(--fg); line-height:1.65; font-size:14px; }
+    a { color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
+    img { max-width:100%; display:block; }
+    .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
 
-    * { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--fg);
-  line-height: 1.6;
-  font-size: 14px;   /* smaller body text */
-}
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:14px; }
+    .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow:var(--shadow); }
+    .title { font-weight:700; font-size:12px; }
+    nav a { margin-left:16px; font-weight:600; font-size:13px; }
+    @media (max-width:640px){ nav{ display:none; } }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover, a:focus { text-decoration: underline; }
-img { max-width: 100%; display: block; }
+    .hero { margin:36px 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; }
+    .hero h1 { font-size:clamp(22px,4vw,36px); line-height:1.15; margin:0 0 8px; }
+    .lead { font-size:clamp(16px,2vw,18px); color:var(--muted); }
+    .hero-img { width:100%; border-radius:18px; border:1px solid:var(--line); box-shadow:var(--shadow); object-fit:cover; }
+    @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
 
-.wrap {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 28px clamp(16px, 3vw, 28px) 80px;
-}
+    h2 { font-size:clamp(18px,2vw,22px); margin:24px 0 10px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+    .card { background:var(--surface); padding:18px; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); }
+    .card h3 { margin:6px 0 8px; font-size:16px; }
+    .meta { color:var(--muted); font-size:12px; }
 
-/* Header */
-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: flex; align-items: center; gap: 14px; }
-.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); box-shadow: var(--shadow); }
-.title { font-weight: 700; font-size: 12px; }   /* smaller name */
-nav a { margin-left: 16px; font-weight: 600; font-size: 13px; }  /* smaller nav links */
-@media (max-width: 640px){ nav { display: none; } }
+    details { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
+    summary { cursor:pointer; font-weight:600; }
+    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding:12px; border-radius:12px; overflow:auto;
+          font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; }
 
-/* Hero */
-.hero { margin: 48px 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
-.hero h1 { font-size: clamp(22px, 4vw, 36px); line-height: 1.15; margin: 0 0 8px; } /* smaller main heading */
-.lead { font-size: clamp(16px, 2vw, 18px); color: var(--muted); } /* smaller intro text */
-.hero-img { width: 100%; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); object-fit: cover; }
-@media (max-width: 860px){ .hero { grid-template-columns: 1fr; } }
-
-/* Sections */
-h2 { font-size: clamp(18px, 2vw, 22px); margin: 34px 0 12px; }  /* smaller section headings */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-.card { background: var(--surface); padding: 18px; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); }
-.card h3 { margin: 6px 0 8px; font-size: 16px; }  /* smaller card titles */
-.meta { color: var(--muted); font-size: 12px; }   /* smaller meta text */
-
-/* Details */
-details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
-summary { cursor: pointer; font-weight: 600; }
-pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
-
-/* Footer */
-footer { margin-top: 56px; color: var(--muted); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
-.theme-toggle { border: 1px solid var(--line); background: var(--surface); color: var(--accent-ink); border-radius: 12px; padding: 6px 10px; font-size: 13px; }
-
+    footer { margin-top:40px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; }
+    .theme-toggle { border:1px solid var(--line); background:var(--surface); color:var(--accent-ink); border-radius:12px; padding:6px 10px; font-size:13px; }
+  </style>
+</head>
+<body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <img class="avatar" src="avatar.jpg" alt="Headshot of Your Name" />
+        <img class="avatar" src="avatar.jpg" alt="Headshot of Christine Wu">
         <div class="title">Christine Wu</div>
       </div>
       <nav aria-label="Primary">
@@ -90,7 +64,7 @@ footer { margin-top: 56px; color: var(--muted); display: flex; align-items: cent
       </nav>
     </header>
 
-    <!-- Intro + nice picture -->
+     <!-- Intro + nice picture -->
     <section class="hero" id="intro">
       <div>
         <h1>Christine Wu.</h1>
@@ -109,19 +83,18 @@ footer { margin-top: 56px; color: var(--muted); display: flex; align-items: cent
       <img class="hero-img" src="portrait.jpg" alt="A photo of me" />
     </section>
 
-    <!-- Projects -->
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">Selected Projects</h2>
       <div class="grid">
         <article class="card">
           <h3>Fast Solver for PDE X</h3>
           <p class="meta">Numerical methods · C++/Python · 2024</p>
-          <p>Brief one-liner about the method/impact. <a href="#">Code</a> · <a href="#">Report</a></p>
+          <p>Brief one-liner. <a href="#">Code</a> · <a href="#">Report</a></p>
         </article>
         <article class="card">
           <h3>Optimization for Y</h3>
           <p class="meta">Convex optimization · PyTorch · 2023</p>
-          <p>Short description of your role and results. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
+          <p>Short description. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
         </article>
         <article class="card">
           <h3>Computational Geometry Z</h3>
@@ -131,48 +104,47 @@ footer { margin-top: 56px; color: var(--muted); display: flex; align-items: cent
       </div>
     </section>
 
-    <!-- Notes / Writing -->
     <section id="notes" aria-labelledby="notes-title">
       <h2 id="notes-title">Notes</h2>
       <div class="grid">
         <article class="card">
           <h3>Numerical Linear Algebra Cheatsheet</h3>
-          <p class="meta">Updated 2025‑01</p>
+          <p class="meta">Updated 2025-01</p>
           <p>Key decompositions, conditioning, and iterative methods. <a href="#">Read</a></p>
         </article>
         <article class="card">
           <h3>Gradient-Based Methods: A Quick Guide</h3>
-          <p class="meta">Updated 2025‑01</p>
+          <p class="meta">Updated 2025-01</p>
           <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
         </article>
       </div>
     </section>
 
-    <!-- Publications -->
     <section id="pubs" aria-labelledby="pubs-title">
       <h2 id="pubs-title">Publications</h2>
       <div class="card">
         <h3>Paper Title 1</h3>
-        <p class="meta">Your Name, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
+        <p class="meta">Christine Wu, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
         <details>
           <summary>BibTeX</summary>
-<pre>@article{yourname2024paper,
+<pre>@article{wu2024paper,
   title   = {Paper Title 1},
-  author  = {Your Name and Coauthor},
+  author  = {Wu, Christine and Coauthor},
   journal = {Journal Name},
   year    = {2024},
   url     = {https://example.com/paper1}
 }</pre>
         </details>
       </div>
+
       <div class="card" style="margin-top:12px;">
         <h3>Paper Title 2</h3>
-        <p class="meta">Your Name, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
+        <p class="meta">Christine Wu, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
         <details>
           <summary>BibTeX</summary>
-<pre>@inproceedings{yourname2023work,
+<pre>@inproceedings{wu2023work,
   title     = {Paper Title 2},
-  author    = {Your Name and Coauthor},
+  author    = {Wu, Christine and Coauthor},
   booktitle = {Proceedings of XYZ},
   year      = {2023},
   url       = {https://example.com/paper2}
@@ -182,27 +154,23 @@ footer { margin-top: 56px; color: var(--muted); display: flex; align-items: cent
     </section>
 
     <footer>
-      <span>© <span id="y"></span> Your Name</span>
+      <span>© <span id="y"></span> Christine Wu</span>
       <button id="themeToggle" class="theme-toggle">🌗 Theme</button>
     </footer>
   </div>
 
   <script>
+    // Year + theme toggle (safe, tiny)
     document.getElementById('y').textContent = new Date().getFullYear();
     (function(){
-      const key = 'theme-preference';
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const saved = localStorage.getItem(key);
-      if (saved) root.setAttribute('data-theme', saved);
+      const key='theme-preference', root=document.documentElement, btn=document.getElementById('themeToggle');
+      const saved=localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved);
       btn.addEventListener('click', () => {
         const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(key, next);
+        root.setAttribute('data-theme', next); localStorage.setItem(key, next);
       });
     })();
   </script>
 </body>
 </html>
-
