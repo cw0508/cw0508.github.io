@@ -3,25 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — PhD Applications (Math / Applied & Computational Math)</title>
-  <meta name="description" content="Projects, notes, and publications by Your Name — prospective PhD student in Mathematics / Applied & Computational Mathematics." />
+  <title>Your Name — Research Portfolio</title>
+  <meta name="description" content="Introduction, selected projects, notes, and publications by Your Name." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
 
-  <!-- Open Graph / Twitter (replace placeholders) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Your Name — Research Portfolio">
-  <meta property="og:description" content="Projects, notes, and publications for PhD applications in Math / Applied & Computational Math.">
-  <meta property="og:image" content="og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-
   <style>
-    /* ===================
-       Design tokens — light, with a blue accent
-       =================== */
     :root {
       --bg: #f8fafc;          /* light background */
       --surface: #ffffff;      /* cards */
@@ -29,70 +19,45 @@
       --muted: #475569;        /* secondary text */
       --line: #e2e8f0;         /* borders */
       --accent: #0ea5e9;       /* blue */
-      --accent-ink: #075985;   /* darker blue for text on soft backgrounds */
-      --ring: 0 0 0 3px rgba(14,165,233,.35);
+      --accent-ink: #075985;   /* dark blue */
       --shadow: 0 8px 24px rgba(2, 6, 23, .08);
     }
-
-    /* Optional dark mode */
     html[data-theme="dark"] {
-      --bg: #0b1020;
-      --surface: #0f172a;
-      --fg: #e5e7eb;
-      --muted: #9aa4b2;
-      --line: #1f2937;
-      --accent: #38bdf8;
-      --accent-ink: #e0f2fe;
-      --shadow: 0 8px 24px rgba(0,0,0,.35);
+      --bg: #0b1020; --surface:#0f172a; --fg:#e5e7eb; --muted:#9aa4b2; --line:#1f2937; --accent:#38bdf8; --accent-ink:#e0f2fe; --shadow:0 8px 24px rgba(0,0,0,.35);
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    }
+    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--fg); line-height:1.65; }
     a { color: var(--accent); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; }
-    img { max-width: 100%; display: block; }
+    img { max-width:100%; display:block; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 28px clamp(16px,3vw,28px) 80px; }
 
-    /* Header */
     header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand { display:flex; align-items:center; gap:14px; }
     .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow: var(--shadow); }
     .title { font-weight:700; font-size: 18px; }
-    .tag { display:inline-block; margin-top:4px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--accent-ink); background: color-mix(in srgb, var(--accent) 12%, transparent); }
-
     nav a { margin-left:16px; font-weight:600; }
-    .actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .button { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; background: var(--accent); color: white; border-radius: 12px; border: none; font-weight:600; box-shadow: var(--shadow); }
-    .button:hover { filter: brightness(0.95); }
-    .ghost { background: var(--surface); color: var(--accent-ink); border:1px solid var(--line); }
+    @media (max-width:640px){ nav{display:none;} }
 
-    /* Sections */
-    .hero { margin: 48px 0 20px; }
-    h1 { font-size: clamp(30px, 5.4vw, 52px); line-height:1.1; margin:0 0 10px; }
-    p.lead { font-size: clamp(18px, 2.4vw, 20px); color: var(--muted); max-width: 72ch; }
+    .hero { margin:48px 0 24px; display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 46px); line-height:1.15; margin:0 0 8px; }
+    .lead { font-size: clamp(18px, 2.3vw, 20px); color: var(--muted); }
+    .hero-img { width:100%; border-radius:18px; border:1px solid var(--line); box-shadow: var(--shadow); object-fit:cover; }
+    @media (max-width: 860px){ .hero{ grid-template-columns: 1fr; } }
 
     h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 34px 0 12px; }
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
     .card { background: var(--surface); padding:18px; border-radius: 18px; border:1px solid var(--line); box-shadow: var(--shadow); }
-    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .card h3 { margin:6px 0 8px; font-size:18px; }
     .meta { color: var(--muted); font-size: 14px; }
 
     details { background: var(--surface); border:1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
     summary { cursor: pointer; font-weight: 600; }
-    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow:auto; }
+    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow:auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
-    footer { margin-top:56px; color: var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-
-    @media (max-width: 640px) { nav { display:none; } }
+    footer { margin-top:56px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .theme-toggle { border:1px solid var(--line); background: var(--surface); color: var(--accent-ink); border-radius:12px; padding:8px 12px; }
   </style>
 </head>
 <body>
@@ -100,70 +65,71 @@
     <header>
       <div class="brand">
         <img class="avatar" src="avatar.jpg" alt="Headshot of Your Name" />
-        <div>
-          <div class="title">Your Name</div>
-          <div class="tag">Prospective PhD — Math / Applied & Computational Math</div>
-        </div>
+        <div class="title">Your Name</div>
       </div>
-      <div class="actions">
-        <a class="button" href="cv.pdf">📄 CV</a>
-        <a class="button ghost" href="#contact">✉️ Contact</a>
-      </div>
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#pubs">Publications</a>
+      </nav>
     </header>
 
-    <main id="main">
-      <section class="hero">
-        <h1>Research interests: numerical analysis, scientific computing, and optimization</h1>
-        <p class="lead">I’m applying for PhD programs in Mathematics / Applied & Computational Mathematics. My recent work includes <strong>Project A</strong> on XYZ and <strong>Project B</strong> on ABC. I keep concise <a href="#notes">notes</a> and list my <a href="#pubs">publications</a> below.</p>
-      </section>
+    <!-- Intro + nice picture -->
+    <section class="hero" id="intro">
+      <div>
+        <h1>Hello! I’m Your Name.</h1>
+        <p class="lead">I study mathematics with interests in numerical analysis, scientific computing, and optimization. I enjoy building clean implementations, writing concise notes, and collaborating across math and computation. Below are a few projects I’m proud of, some notes I maintain, and my publications.</p>
+      </div>
+      <img class="hero-img" src="portrait.jpg" alt="A photo of me" />
+    </section>
 
-      <!-- Projects -->
-      <section id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">Selected Projects</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Fast Solver for PDE X</h3>
-            <p class="meta">Numerical methods · C++/Python · 2024</p>
-            <p>Brief one-liner about the method/impact. <a href="#">Code</a> · <a href="#">Report</a></p>
-          </article>
-          <article class="card">
-            <h3>Optimization for Y</h3>
-            <p class="meta">Convex optimization · PyTorch · 2023</p>
-            <p>Short description of your role and results. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
-          </article>
-          <article class="card">
-            <h3>Computational Geometry Z</h3>
-            <p class="meta">Algorithms · Visualization · 2023</p>
-            <p>What it does and why it matters. <a href="#">Demo</a></p>
-          </article>
-        </div>
-      </section>
+    <!-- Projects -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Fast Solver for PDE X</h3>
+          <p class="meta">Numerical methods · C++/Python · 2024</p>
+          <p>Brief one-liner about the method/impact. <a href="#">Code</a> · <a href="#">Report</a></p>
+        </article>
+        <article class="card">
+          <h3>Optimization for Y</h3>
+          <p class="meta">Convex optimization · PyTorch · 2023</p>
+          <p>Short description of your role and results. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
+        </article>
+        <article class="card">
+          <h3>Computational Geometry Z</h3>
+          <p class="meta">Algorithms · Visualization · 2023</p>
+          <p>What it does and why it matters. <a href="#">Demo</a></p>
+        </article>
+      </div>
+    </section>
 
-      <!-- Notes / Writing -->
-      <section id="notes" aria-labelledby="notes-title">
-        <h2 id="notes-title">Notes</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Numerical Linear Algebra Cheatsheet</h3>
-            <p class="meta">Updated 2025‑01</p>
-            <p>Key decompositions, conditioning, and iterative methods. <a href="#">Read</a></p>
-          </article>
-          <article class="card">
-            <h3>Gradient-Based Methods: A Quick Guide</h3>
-            <p class="meta">Updated 2025‑01</p>
-            <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
-          </article>
-        </div>
-      </section>
+    <!-- Notes / Writing -->
+    <section id="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">Notes</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Numerical Linear Algebra Cheatsheet</h3>
+          <p class="meta">Updated 2025‑01</p>
+          <p>Key decompositions, conditioning, and iterative methods. <a href="#">Read</a></p>
+        </article>
+        <article class="card">
+          <h3>Gradient-Based Methods: A Quick Guide</h3>
+          <p class="meta">Updated 2025‑01</p>
+          <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
+        </article>
+      </div>
+    </section>
 
-      <!-- Publications -->
-      <section id="pubs" aria-labelledby="pubs-title">
-        <h2 id="pubs-title">Publications</h2>
-        <div class="card">
-          <h3>Paper Title 1</h3>
-          <p class="meta">Your Name, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
-          <details>
-            <summary>BibTeX</summary>
+    <!-- Publications -->
+    <section id="pubs" aria-labelledby="pubs-title">
+      <h2 id="pubs-title">Publications</h2>
+      <div class="card">
+        <h3>Paper Title 1</h3>
+        <p class="meta">Your Name, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
+        <details>
+          <summary>BibTeX</summary>
 <pre>@article{yourname2024paper,
   title   = {Paper Title 1},
   author  = {Your Name and Coauthor},
@@ -171,13 +137,13 @@
   year    = {2024},
   url     = {https://example.com/paper1}
 }</pre>
-          </details>
-        </div>
-        <div class="card" style="margin-top:12px;">
-          <h3>Paper Title 2</h3>
-          <p class="meta">Your Name, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
-          <details>
-            <summary>BibTeX</summary>
+        </details>
+      </div>
+      <div class="card" style="margin-top:12px;">
+        <h3>Paper Title 2</h3>
+        <p class="meta">Your Name, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
+        <details>
+          <summary>BibTeX</summary>
 <pre>@inproceedings{yourname2023work,
   title     = {Paper Title 2},
   author    = {Your Name and Coauthor},
@@ -185,30 +151,18 @@
   year      = {2023},
   url       = {https://example.com/paper2}
 }</pre>
-          </details>
-        </div>
-      </section>
-
-      <!-- Contact / About -->
-      <section id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact</h2>
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-        <p>Links: <a href="https://github.com/yourhandle">GitHub</a> · <a href="https://scholar.google.com">Google Scholar</a> · <a href="https://www.linkedin.com/in/yourhandle">LinkedIn</a></p>
-      </section>
-    </main>
+        </details>
+      </div>
+    </section>
 
     <footer>
       <span>© <span id="y"></span> Your Name</span>
-      <span>Built with HTML/CSS • Hosted on GitHub Pages</span>
-      <button id="themeToggle" class="button ghost" style="margin-left:auto;">🌗 Theme</button>
+      <button id="themeToggle" class="theme-toggle">🌗 Theme</button>
     </footer>
   </div>
 
   <script>
-    // Current year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Theme toggle (light default)
     (function(){
       const key = 'theme-preference';
       const root = document.documentElement;
@@ -222,21 +176,6 @@
         localStorage.setItem(key, next);
       });
     })();
-  </script>
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Your Name",
-    "url": "https://yourusername.github.io/",
-    "sameAs": [
-      "https://github.com/yourhandle",
-      "https://scholar.google.com/citations?user=XXXX",
-      "https://www.linkedin.com/in/yourhandle"
-    ]
-  }
   </script>
 </body>
 </html>
