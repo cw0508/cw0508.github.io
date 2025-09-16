@@ -27,40 +27,56 @@
     }
 
     * { box-sizing: border-box; }
-    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--fg); line-height:1.65; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; }
-    img { max-width:100%; display:block; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 28px clamp(16px,3vw,28px) 80px; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  font-size: 14px;   /* smaller body text */
+}
 
-    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand { display:flex; align-items:center; gap:14px; }
-    .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow: var(--shadow); }
-    .title { font-weight:700; font-size: 14px; }
-    nav a { margin-left:16px; font-weight:600; }
-    @media (max-width:640px){ nav{display:none;} }
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+img { max-width: 100%; display: block; }
 
-    .hero { margin:48px 0 24px; display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:center; }
-    .hero h1 { font-size: clamp(28px, 5vw, 46px); line-height:1.15; margin:0 0 8px; }
-    .lead { font-size: clamp(18px, 2.3vw, 20px); color: var(--muted); }
-    .hero-img { width:100%; border-radius:18px; border:1px solid var(--line); box-shadow: var(--shadow); object-fit:cover; }
-    @media (max-width: 860px){ .hero{ grid-template-columns: 1fr; } }
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px clamp(16px, 3vw, 28px) 80px;
+}
 
-    h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 34px 0 12px; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
-    .card { background: var(--surface); padding:18px; border-radius: 18px; border:1px solid var(--line); box-shadow: var(--shadow); }
-    .card h3 { margin:6px 0 8px; font-size:18px; }
-    .meta { color: var(--muted); font-size: 14px; }
+/* Header */
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); box-shadow: var(--shadow); }
+.title { font-weight: 700; font-size: 12px; }   /* smaller name */
+nav a { margin-left: 16px; font-weight: 600; font-size: 13px; }  /* smaller nav links */
+@media (max-width: 640px){ nav { display: none; } }
 
-    details { background: var(--surface); border:1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
-    summary { cursor: pointer; font-weight: 600; }
-    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow:auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+/* Hero */
+.hero { margin: 48px 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+.hero h1 { font-size: clamp(22px, 4vw, 36px); line-height: 1.15; margin: 0 0 8px; } /* smaller main heading */
+.lead { font-size: clamp(16px, 2vw, 18px); color: var(--muted); } /* smaller intro text */
+.hero-img { width: 100%; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); object-fit: cover; }
+@media (max-width: 860px){ .hero { grid-template-columns: 1fr; } }
 
-    footer { margin-top:56px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .theme-toggle { border:1px solid var(--line); background: var(--surface); color: var(--accent-ink); border-radius:12px; padding:8px 12px; }
-  </style>
-</head>
-<body>
+/* Sections */
+h2 { font-size: clamp(18px, 2vw, 22px); margin: 34px 0 12px; }  /* smaller section headings */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.card { background: var(--surface); padding: 18px; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+.card h3 { margin: 6px 0 8px; font-size: 16px; }  /* smaller card titles */
+.meta { color: var(--muted); font-size: 12px; }   /* smaller meta text */
+
+/* Details */
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+summary { cursor: pointer; font-weight: 600; }
+pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+
+/* Footer */
+footer { margin-top: 56px; color: var(--muted); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+.theme-toggle { border: 1px solid var(--line); background: var(--surface); color: var(--accent-ink); border-radius: 12px; padding: 6px 10px; font-size: 13px; }
+
   <div class="wrap">
     <header>
       <div class="brand">
@@ -84,7 +100,7 @@
         </p>
         <p class="lead">
           My undergraduate research was focusing on 2D materials,<a href="https://en.wikipedia.org/wiki/Molybdenum_disulfide">Molybdenum disulfide (MoS2)</a>, using <a href="https://en.wikipedia.org/wiki/Electrohydrodynamics">electrohydrodynamics </a> techniques.
-          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory </a>, and <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory </a>.
+          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
         </p>
         <p class="lead">
           Now, at Courant, I'm working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing the computational algorthims on the Multidimensional Riemann Problem for Hyperbolic System of Conservation Laws. 
