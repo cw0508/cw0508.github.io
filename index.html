@@ -3,54 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Designer · Developer</title>
-  <meta name="description" content="Portfolio, projects, and contact for Your Name." />
+  <title>Your Name — PhD Applications (Math / Applied & Computational Math)</title>
+  <meta name="description" content="Projects, notes, and publications by Your Name — prospective PhD student in Mathematics / Applied & Computational Mathematics." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
-  <!-- Open Graph / Twitter -->
+
+  <!-- Open Graph / Twitter (replace placeholders) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Your Name — Portfolio">
-  <meta property="og:description" content="Selected projects, writing, and ways to reach me.">
-  <meta property="og:image" content="og-image.jpg"> <!-- 1200x630 recommended -->
+  <meta property="og:title" content="Your Name — Research Portfolio">
+  <meta property="og:description" content="Projects, notes, and publications for PhD applications in Math / Applied & Computational Math.">
+  <meta property="og:image" content="og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <style>
     /* ===================
-       Design Tokens
+       Design tokens — light, with a blue accent
        =================== */
     :root {
-      --bg: #0b0b0f;
-      --fg: #eef0f4;
-      --muted: #a9b0bf;
-      --card: #141826;
-      --line: #23283a;
-      --accent: #79ffe1;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-    /* Light mode palette */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #ffffff;
-        --fg: #0b1220;
-        --muted: #4a5568;
-        --card: #f7f9fc;
-        --line: #e6eaf3;
-        --accent: #0ea5e9;
-      }
-    }
-    /* Manual theme toggle overrides */
-    html[data-theme="light"] {
-      --bg: #ffffff; --fg:#0b1220; --muted:#4a5568; --card:#f7f9fc; --line:#e6eaf3; --accent:#0ea5e9;
-    }
-    html[data-theme="dark"] {
-      --bg:#0b0b0f; --fg:#eef0f4; --muted:#a9b0bf; --card:#141826; --line:#23283a; --accent:#79ffe1;
+      --bg: #f8fafc;          /* light background */
+      --surface: #ffffff;      /* cards */
+      --fg: #0f172a;           /* text */
+      --muted: #475569;        /* secondary text */
+      --line: #e2e8f0;         /* borders */
+      --accent: #0ea5e9;       /* blue */
+      --accent-ink: #075985;   /* darker blue for text on soft backgrounds */
+      --ring: 0 0 0 3px rgba(14,165,233,.35);
+      --shadow: 0 8px 24px rgba(2, 6, 23, .08);
     }
 
-    /* ===================
-       Base styles
-       =================== */
+    /* Optional dark mode */
+    html[data-theme="dark"] {
+      --bg: #0b1020;
+      --surface: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #9aa4b2;
+      --line: #1f2937;
+      --accent: #38bdf8;
+      --accent-ink: #e0f2fe;
+      --shadow: 0 8px 24px rgba(0,0,0,.35);
+    }
+
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -58,137 +53,154 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--fg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; }
     img { max-width: 100%; display: block; }
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 24px clamp(16px, 3vw, 28px) 80px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px clamp(16px,3vw,28px) 80px; }
 
-    /* Skip link for accessibility */
-    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus { position:static; width:auto; height:auto; padding:8px 12px; border-radius:10px; background:var(--card); border:1px solid var(--line); }
-
-    /* ===================
-       Header / Nav
-       =================== */
+    /* Header */
     header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand { display:flex; align-items:center; gap:14px; }
-    .avatar { width:56px; height:56px; border-radius:50%; background:#222; object-fit:cover; border:1px solid var(--line); box-shadow: var(--shadow);
-    }
-    .title { font-weight:700; }
-    .tag { display:inline-block; padding:2px 8px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--muted); }
+    .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow: var(--shadow); }
+    .title { font-weight:700; font-size: 18px; }
+    .tag { display:inline-block; margin-top:4px; padding:4px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--accent-ink); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+
     nav a { margin-left:16px; font-weight:600; }
+    .actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; background: var(--accent); color: white; border-radius: 12px; border: none; font-weight:600; box-shadow: var(--shadow); }
+    .button:hover { filter: brightness(0.95); }
+    .ghost { background: var(--surface); color: var(--accent-ink); border:1px solid var(--line); }
 
-    .theme-toggle {
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; background:var(--card); border:1px solid var(--line); border-radius:12px; cursor:pointer;
-    }
+    /* Sections */
+    .hero { margin: 48px 0 20px; }
+    h1 { font-size: clamp(30px, 5.4vw, 52px); line-height:1.1; margin:0 0 10px; }
+    p.lead { font-size: clamp(18px, 2.4vw, 20px); color: var(--muted); max-width: 72ch; }
 
-    /* ===================
-       Sections
-       =================== */
-    .hero { margin: 56px 0 24px; }
-    h1 { font-size: clamp(32px, 6vw, 56px); line-height:1.1; margin:0 0 8px; }
-    p.lead { font-size: clamp(18px, 2.4vw, 20px); color:var(--muted); max-width: 72ch; }
-
-    h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 36px 0 12px; }
-
+    h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 34px 0 12px; }
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
-    .card { background:var(--card); padding:18px; border-radius:18px; border:1px solid var(--line); box-shadow: var(--shadow); transition: transform .15s ease;
-    }
-    .card:hover { transform: translateY(-2px); }
-    .card h3 { margin:8px 0 6px; font-size:18px; }
-    .card p { margin: 0 0 10px; color: var(--muted); }
-    .card .links a { margin-right:12px; }
+    .card { background: var(--surface); padding:18px; border-radius: 18px; border:1px solid var(--line); box-shadow: var(--shadow); }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .meta { color: var(--muted); font-size: 14px; }
 
-    .btn { display:inline-block; margin-top:18px; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, rgba(26,32,52,.9), rgba(18,24,42,.9)); border:1px solid var(--line); }
+    details { background: var(--surface); border:1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+    summary { cursor: pointer; font-weight: 600; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 12px; border-radius: 12px; overflow:auto; }
 
-    footer { margin-top:56px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .socials a { margin-right:14px; }
+    footer { margin-top:56px; color: var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 
-    /* Small screens: hide nav links; stack header */
-    @media (max-width: 640px) {
-      nav { display:none; }
-      header { align-items:flex-start; }
-    }
+    @media (max-width: 640px) { nav { display:none; } }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <div class="wrap">
     <header>
       <div class="brand">
         <img class="avatar" src="avatar.jpg" alt="Headshot of Your Name" />
         <div>
           <div class="title">Your Name</div>
-          <span class="tag">Designer · Developer · Human</span>
+          <div class="tag">Prospective PhD — Math / Applied & Computational Math</div>
         </div>
       </div>
-      <div>
-        <nav aria-label="Primary">
-          <a href="#projects">Projects</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Toggle theme">🌗 Theme</button>
+      <div class="actions">
+        <a class="button" href="cv.pdf">📄 CV</a>
+        <a class="button ghost" href="#contact">✉️ Contact</a>
       </div>
     </header>
 
     <main id="main">
       <section class="hero">
-        <h1>Hi, I’m Your Name.</h1>
-        <p class="lead">I build clean, accessible web experiences and share what I learn. Currently at <a href="#">Company</a>, previously <a href="#">Elsewhere</a>. Open to interesting collaborations.</p>
-        <a class="btn" href="#contact">Get in touch</a>
+        <h1>Research interests: numerical analysis, scientific computing, and optimization</h1>
+        <p class="lead">I’m applying for PhD programs in Mathematics / Applied & Computational Mathematics. My recent work includes <strong>Project A</strong> on XYZ and <strong>Project B</strong> on ABC. I keep concise <a href="#notes">notes</a> and list my <a href="#pubs">publications</a> below.</p>
       </section>
 
+      <!-- Projects -->
       <section id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Selected Projects</h2>
         <div class="grid">
           <article class="card">
-            <h3>Project One</h3>
-            <p>One-liner about the outcome/impact.
-            </p>
-            <p class="links"><a href="#">Case study</a><a href="#">Live</a><a href="#">Code</a></p>
+            <h3>Fast Solver for PDE X</h3>
+            <p class="meta">Numerical methods · C++/Python · 2024</p>
+            <p>Brief one-liner about the method/impact. <a href="#">Code</a> · <a href="#">Report</a></p>
           </article>
           <article class="card">
-            <h3>Project Two</h3>
-            <p>Brief description and your role.
-            </p>
-            <p class="links"><a href="#">Details</a></p>
+            <h3>Optimization for Y</h3>
+            <p class="meta">Convex optimization · PyTorch · 2023</p>
+            <p>Short description of your role and results. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
           </article>
           <article class="card">
-            <h3>Project Three</h3>
-            <p>A sentence to tease the work.
-            </p>
-            <p class="links"><a href="#">More</a></p>
+            <h3>Computational Geometry Z</h3>
+            <p class="meta">Algorithms · Visualization · 2023</p>
+            <p>What it does and why it matters. <a href="#">Demo</a></p>
           </article>
         </div>
       </section>
 
-      <section id="writing" aria-labelledby="writing-title">
-        <h2 id="writing-title">Writing</h2>
+      <!-- Notes / Writing -->
+      <section id="notes" aria-labelledby="notes-title">
+        <h2 id="notes-title">Notes</h2>
         <div class="grid">
-          <article class="card"><h3>How I built X</h3><p>Short description.</p><p class="links"><a href="#">Read</a></p></article>
-          <article class="card"><h3>Notes on Y</h3><p>Short description.</p><p class="links"><a href="#">Read</a></p></article>
+          <article class="card">
+            <h3>Numerical Linear Algebra Cheatsheet</h3>
+            <p class="meta">Updated 2025‑01</p>
+            <p>Key decompositions, conditioning, and iterative methods. <a href="#">Read</a></p>
+          </article>
+          <article class="card">
+            <h3>Gradient-Based Methods: A Quick Guide</h3>
+            <p class="meta">Updated 2025‑01</p>
+            <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
+          </article>
         </div>
       </section>
 
+      <!-- Publications -->
+      <section id="pubs" aria-labelledby="pubs-title">
+        <h2 id="pubs-title">Publications</h2>
+        <div class="card">
+          <h3>Paper Title 1</h3>
+          <p class="meta">Your Name, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
+          <details>
+            <summary>BibTeX</summary>
+<pre>@article{yourname2024paper,
+  title   = {Paper Title 1},
+  author  = {Your Name and Coauthor},
+  journal = {Journal Name},
+  year    = {2024},
+  url     = {https://example.com/paper1}
+}</pre>
+          </details>
+        </div>
+        <div class="card" style="margin-top:12px;">
+          <h3>Paper Title 2</h3>
+          <p class="meta">Your Name, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
+          <details>
+            <summary>BibTeX</summary>
+<pre>@inproceedings{yourname2023work,
+  title     = {Paper Title 2},
+  author    = {Your Name and Coauthor},
+  booktitle = {Proceedings of XYZ},
+  year      = {2023},
+  url       = {https://example.com/paper2}
+}</pre>
+          </details>
+        </div>
+      </section>
+
+      <!-- Contact / About -->
       <section id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">Contact</h2>
-        <p>Reach me at <a href="mailto:you@example.com">you@example.com</a> — I read every email.</p>
-        <p class="socials">
-          <a href="https://github.com/yourhandle" aria-label="GitHub profile">GitHub</a>
-          <a href="https://www.linkedin.com/in/yourhandle" aria-label="LinkedIn profile">LinkedIn</a>
-          <a href="https://twitter.com/yourhandle" aria-label="Twitter profile">Twitter/X</a>
-        </p>
+        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        <p>Links: <a href="https://github.com/yourhandle">GitHub</a> · <a href="https://scholar.google.com">Google Scholar</a> · <a href="https://www.linkedin.com/in/yourhandle">LinkedIn</a></p>
       </section>
     </main>
 
     <footer>
       <span>© <span id="y"></span> Your Name</span>
       <span>Built with HTML/CSS • Hosted on GitHub Pages</span>
+      <button id="themeToggle" class="button ghost" style="margin-left:auto;">🌗 Theme</button>
     </footer>
   </div>
 
@@ -196,27 +208,23 @@
     // Current year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Theme toggle
+    // Theme toggle (light default)
     (function(){
       const key = 'theme-preference';
+      const root = document.documentElement;
       const btn = document.getElementById('themeToggle');
-      const getPreference = () => localStorage.getItem(key);
-      const apply = (theme) => document.documentElement.setAttribute('data-theme', theme);
-      const set = (theme) => { localStorage.setItem(key, theme); apply(theme); };
-
-      const saved = getPreference();
-      if (saved) apply(saved);
-
+      const saved = localStorage.getItem(key);
+      if (saved) root.setAttribute('data-theme', saved);
       btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         const next = current === 'dark' ? 'light' : 'dark';
-        btn.setAttribute('aria-pressed', String(next === 'dark'));
-        set(next);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(key, next);
       });
     })();
   </script>
 
-  <!-- Optional: Structured data for richer search results. Replace placeholders. -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -225,8 +233,8 @@
     "url": "https://yourusername.github.io/",
     "sameAs": [
       "https://github.com/yourhandle",
-      "https://www.linkedin.com/in/yourhandle",
-      "https://twitter.com/yourhandle"
+      "https://scholar.google.com/citations?user=XXXX",
+      "https://www.linkedin.com/in/yourhandle"
     ]
   }
   </script>
