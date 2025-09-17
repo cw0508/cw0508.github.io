@@ -19,6 +19,17 @@
     body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
            background:var(--bg); color:var(--fg); line-height:1.65; font-size:14px; }
     a { color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
+    <!-- Decorative ocean waves -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 320px; z-index: -1; overflow: hidden;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="width:100%; height:100%;">
+        <path fill="#0ea5e9" fill-opacity="0.9"
+              d="M0,64L48,74.7C96,85,192,107,288,117.3C384,128,480,128,576,133.3C672,139,768,149,864,160C960,171,1056,181,1152,160C1248,139,1344,85,1392,58.7L1440,32L1440,320L0,320Z"></path>
+        <path fill="#38bdf8" fill-opacity="0.7"
+              d="M0,160L60,176C120,192,240,224,360,213.3C480,203,600,149,720,149.3C840,149,960,203,1080,224C1200,245,1320,235,1380,229.3L1440,224L1440,320L0,320Z"></path>
+        <path fill="#bae6fd" fill-opacity="0.6"
+              d="M0,224L48,234.7C96,245,192,267,288,240C384,213,480,139,576,128C672,117,768,171,864,192C960,213,1056,203,1152,176C1248,149,1344,107,1392,85.3L1440,64L1440,320L0,320Z"></path>
+      </svg>
+    </div>
     img { max-width:100%; display:block; }
     .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
 
@@ -77,15 +88,13 @@
           I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
         </p>
         <p class="lead">
-          Now, at Courant, I'm working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing the computational algorthims for Multidimensional Riemann Problem on <a href = "https://epubs.siam.org/doi/10.1137/1.9781611970562">Hyperbolic Systems of Conservation Laws</a>. 
+          At Courant, I'm working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing the computational algorthims for Multidimensional Riemann Problem on <a href = "https://epubs.siam.org/doi/10.1137/1.9781611970562">Hyperbolic Systems of Conservation Laws</a>. 
       </p>
-         <p class="lead">
-            Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
-         </p>
         <p class="lead">
-          Being as a "Polymorphism", I've done projects outside my offical research, which include a Kaggle Machine Learning compeptition on <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview">Novozymes Enzyme Stability Prediction </a>, 
-          
+          Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
         </p>
+        <p class="lead">
+          Being a "Polymorphism", I've also done independent projects outside my research, which are inclued below. Moreover, I've also done readings on the theory of partial differential equations (PDEs), including Harmonic analysis, Asymptotic analysis, and Homogenization.
       </div>
       <img class="hero-img" src="portrait.jpg" alt="A photo of me" />
     </section>
@@ -94,19 +103,23 @@
       <h2 id="projects-title">Selected Projects</h2>
       <div class="grid">
         <article class="card">
-          <h3>Fast Solver for PDE X</h3>
-          <p class="meta">Numerical methods · C++/Python · 2024</p>
+          <h3> Novozymes Enzyme Stability Prediction </h3>
+          <p class="meta">
+            Kaggle Machine Learning competition on <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview">Novozymes Enzyme Stability Prediction </a>
+          </p>
           <p>Brief one-liner. <a href="#">Code</a> · <a href="#">Report</a></p>
         </article>
+
         <article class="card">
-          <h3>Optimization for Y</h3>
+          <h3>Runge-Kutta (RK)5</h3>
           <p class="meta">Convex optimization · PyTorch · 2023</p>
-          <p>Short description. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
+          <p> Numerical Demonstration of Abel-Ruffini via Quintic Root Finding (RK5) for Nonlinear Wave Simulations <a href="#">Preprint</a> · <a href="#">Slides</a></p>
         </article>
+
         <article class="card">
-          <h3>Computational Geometry Z</h3>
+          <h3> Kinetic Monte Carlo (KMC) Z</h3>
           <p class="meta">Algorithms · Visualization · 2023</p>
-          <p>What it does and why it matters. <a href="#">Demo</a></p>
+          <p> Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model. <a href="#">Demo</a></p>
         </article>
       </div>
     </section>
@@ -114,13 +127,15 @@
     <section id="notes" aria-labelledby="notes-title">
       <h2 id="notes-title">Notes</h2>
       <div class="grid">
+
         <article class="card">
-          <h3>Numerical Linear Algebra Cheatsheet</h3>
+          <h3>Harmonic analysis</h3>
           <p class="meta">Updated 2025-01</p>
-          <p>Key decompositions, conditioning, and iterative methods. <a href="#">Read</a></p>
+          <p>NOTES <a href="#">Read</a></p>
         </article>
+
         <article class="card">
-          <h3>Gradient-Based Methods: A Quick Guide</h3>
+          <h3>Asymptotics analysis</h3>
           <p class="meta">Updated 2025-01</p>
           <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
         </article>
@@ -134,13 +149,13 @@
         <p class="meta">Christine Wu, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
         <details>
           <summary>BibTeX</summary>
-<pre>@article{wu2024paper,
-  title   = {Paper Title 1},
-  author  = {Wu, Christine and Coauthor},
-  journal = {Journal Name},
-  year    = {2024},
-  url     = {https://example.com/paper1}
-}</pre>
+      <pre>@article{wu2024paper,
+        title   = {Paper Title 1},
+        author  = {Wu, Christine and Coauthor},
+        journal = {Journal Name},
+        year    = {2024},
+        url     = {https://example.com/paper1}
+      }</pre>
         </details>
       </div>
 
@@ -149,13 +164,13 @@
         <p class="meta">Christine Wu, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
         <details>
           <summary>BibTeX</summary>
-<pre>@inproceedings{wu2023work,
-  title     = {Paper Title 2},
-  author    = {Wu, Christine and Coauthor},
-  booktitle = {Proceedings of XYZ},
-  year      = {2023},
-  url       = {https://example.com/paper2}
-}</pre>
+      <pre>@inproceedings{wu2023work,
+        title     = {Paper Title 2},
+        author    = {Wu, Christine and Coauthor},
+        booktitle = {Proceedings of XYZ},
+        year      = {2023},
+        url       = {https://example.com/paper2}
+      }</pre>
         </details>
       </div>
     </section>
