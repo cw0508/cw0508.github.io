@@ -17,19 +17,8 @@
     }
     * { box-sizing:border-box; }
     body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-           background:var(--bg); color:var(--fg); line-height:1.65; font-size:14px; }
+           background:var(--bg); color:var(--fg); line-height:1.65; font-size:12px; }
     a { color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
-    <!-- Decorative ocean waves -->
-    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 320px; z-index: -1; overflow: hidden;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="width:100%; height:100%;">
-        <path fill="#0ea5e9" fill-opacity="0.9"
-              d="M0,64L48,74.7C96,85,192,107,288,117.3C384,128,480,128,576,133.3C672,139,768,149,864,160C960,171,1056,181,1152,160C1248,139,1344,85,1392,58.7L1440,32L1440,320L0,320Z"></path>
-        <path fill="#38bdf8" fill-opacity="0.7"
-              d="M0,160L60,176C120,192,240,224,360,213.3C480,203,600,149,720,149.3C840,149,960,203,1080,224C1200,245,1320,235,1380,229.3L1440,224L1440,320L0,320Z"></path>
-        <path fill="#bae6fd" fill-opacity="0.6"
-              d="M0,224L48,234.7C96,245,192,267,288,240C384,213,480,139,576,128C672,117,768,171,864,192C960,213,1056,203,1152,176C1248,149,1344,107,1392,85.3L1440,64L1440,320L0,320Z"></path>
-      </svg>
-    </div>
     img { max-width:100%; display:block; }
     .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
 
@@ -41,8 +30,8 @@
     @media (max-width:640px){ nav{ display:none; } }
 
     .hero { margin:36px 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; }
-    .hero h1 { font-size:clamp(22px,4vw,36px); line-height:1.15; margin:0 0 8px; }
-    .lead { font-size:clamp(16px,2vw,18px); color:var(--muted); }
+    .hero h1 { font-size:clamp(18px,3vw,28px); line-height:1.15; margin:0 0 8px; }
+    .lead { font-size:clamp(14px,1.8vw,16px); color:var(--muted); }
     .hero-img { width:100%; border-radius:18px; border:1px solid:var(--line); box-shadow:var(--shadow); object-fit:cover; }
     @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
 
@@ -60,6 +49,7 @@
     footer { margin-top:40px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; }
     .theme-toggle { border:1px solid var(--line); background:var(--surface); color:var(--accent-ink); border-radius:12px; padding:6px 10px; font-size:13px; }
   </style>
+
 </head>
 <body>
   <div class="wrap">
@@ -81,6 +71,7 @@
         <h1>Christine Wu.</h1>
         <p class="lead">
           Hi, this is Christine. I received my Bachelor's in Chemical Engineering at <a href="https://chemistry.berkeley.edu/">UC Berkeley's College of Chemistry</a>. 
+          After that, I had worked for a few years.
           Now, I'm a Master's student in Scientific Computing at the <a href="https://cims.nyu.edu/dynamic/">Courant Institute of Mathematical Sciences</a> at NYU. 
         </p>
         <p class="lead">
@@ -94,36 +85,46 @@
           Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
         </p>
         <p class="lead">
-          Being a "Polymorphism", I've also done independent projects outside my research, which are inclued below. Moreover, I've also done readings on the theory of partial differential equations (PDEs), including Harmonic analysis, Asymptotic analysis, and Homogenization.
+          Being a "Polymorphism", I've also done independent projects outside my research, where they can be found below. 
       </div>
       <img class="hero-img" src="portrait.jpg" alt="A photo of me" />
     </section>
 
+    <!-- Project -->
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">Selected Projects</h2>
       <div class="grid">
-        <article class="card">
-          <h3> Novozymes Enzyme Stability Prediction </h3>
-          <p class="meta">
-            Kaggle Machine Learning competition on <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview">Novozymes Enzyme Stability Prediction </a>
-          </p>
-          <p>Brief one-liner. <a href="#">Code</a> · <a href="#">Report</a></p>
-        </article>
 
         <article class="card">
-          <h3>Runge-Kutta (RK)5</h3>
-          <p class="meta">Convex optimization · PyTorch · 2023</p>
+          <h3> Novozymes Enzyme Stability Prediction </h3>
+          <p class="meta">Machine Learning · Computational Biology · 2023</p>
+          <p>
+            Silver Medal (Top 1%, 24/2482) solution in the 
+            <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview" target="_blank">
+              Novozymes Enzyme Stability Prediction
+            </a> Machine Learning competition on Kaggle.
+          </p>
+          <p> 
+            <a href="https://github.com/yourusername/novozymes-silver-solution" target="_blank">Code</a> · 
+            <a href="https://github.com/yourusername/novozymes-silver-solution/blob/main/report.md" target="_blank">Report</a>
+          </p>
+        </article>        
+
+        <article class="card">
+          <h3>Runge-Kutta 5(RK5)</h3>
+          <p class="meta">Numerical Method · Nonlinear PDE · 2024</p>
           <p> Numerical Demonstration of Abel-Ruffini via Quintic Root Finding (RK5) for Nonlinear Wave Simulations <a href="#">Preprint</a> · <a href="#">Slides</a></p>
         </article>
 
         <article class="card">
-          <h3> Kinetic Monte Carlo (KMC) Z</h3>
-          <p class="meta">Algorithms · Visualization · 2023</p>
+          <h3> Kinetic Monte Carlo (KMC)</h3>
+          <p class="meta">Algorithms · Visualization · 2024</p>
           <p> Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model. <a href="#">Demo</a></p>
         </article>
       </div>
     </section>
 
+     <!-- Notes -->
     <section id="notes" aria-labelledby="notes-title">
       <h2 id="notes-title">Notes</h2>
       <div class="grid">
@@ -142,37 +143,34 @@
       </div>
     </section>
 
+    <!-- Publications -->
     <section id="pubs" aria-labelledby="pubs-title">
       <h2 id="pubs-title">Publications</h2>
-      <div class="card">
-        <h3>Paper Title 1</h3>
-        <p class="meta">Christine Wu, Coauthor. <em>Conference/Journal</em>, 2024. <a href="#">PDF</a> · <a href="#">Code</a></p>
-        <details>
-          <summary>BibTeX</summary>
-      <pre>@article{wu2024paper,
-        title   = {Paper Title 1},
-        author  = {Wu, Christine and Coauthor},
-        journal = {Journal Name},
-        year    = {2024},
-        url     = {https://example.com/paper1}
-      }</pre>
-        </details>
-      </div>
+      <div class="card" style="margin-top:12px;">
+        <h3>
+          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">
+            Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
+          </a>
+        </h3>
+        <p class="meta">
+          Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Qaiser, N., Cai, Y., Lu, A.-Y., Qi, K., Fu, J.-H., Chiang, Y.-H., Yang, Z., Ding, L., Ali, O. S., Xu, W.,Zhang, W., Hassine, M. B., Kong, J., Chen, H.-Y., & Tung, V.
+          <em>Nature Communications</em>, 2022. 
+          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">Read Paper</a>
+        </p>
+      </div>      
 
       <div class="card" style="margin-top:12px;">
-        <h3>Paper Title 2</h3>
-        <p class="meta">Christine Wu, Coauthor. <em>Workshop/Preprint</em>, 2023. <a href="#">PDF</a></p>
-        <details>
-          <summary>BibTeX</summary>
-      <pre>@inproceedings{wu2023work,
-        title     = {Paper Title 2},
-        author    = {Wu, Christine and Coauthor},
-        booktitle = {Proceedings of XYZ},
-        year      = {2023},
-        url       = {https://example.com/paper2}
-      }</pre>
-        </details>
-      </div>
+        <h3>
+          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">
+            Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
+          </a>
+        </h3>
+        <p class="meta">
+          Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Chen, Y.-C., Chiu, M.-H., Hattar, K., Krogstad, J. A., Chou, S. S., Li, L.-J., Kong, J., Tung, V.
+          <em>Communications Materials</em>, 2020. 
+          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">Read Paper</a>
+        </p>
+      </div>      
     </section>
 
     <footer>
