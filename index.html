@@ -1,78 +1,62 @@
+<!-- ===============================
+FILE: index.html  (Homepage — intro only)
+================================== -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>♟️Chuanwan(川婉) Wu — Research Portfolio</title>
-  <meta name="description" content="Introduction, selected projects, notes, and publications by Christine Wu." />
+  <meta name="description" content="Introduction to Christine Wu — math / applied & computational math." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
-
-
   <style>
-    :root {
-      --bg:#f8fafc; --surface:#fff; --fg:#0f172a; --muted:#475569;
-      --line:#e2e8f0; --accent:#0ea5e9; --accent-ink:#075985; --shadow:0 8px 24px rgba(2,6,23,.08);
-    }
+    :root { --bg:#f8fafc; --surface:#fff; --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#0ea5e9; --accent-ink:#075985; --shadow:0 8px 24px rgba(2,6,23,.08);}  
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-           background:var(--bg); color:var(--fg); line-height:1.65; font-size:12px; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); line-height:1.65; font-size:14px; }
     a { color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
     img { max-width:100%; display:block; }
     .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
-
     header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand { display:flex; align-items:center; gap:14px; }
-    .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow:var(--shadow); }
-    .title { font-weight:700; font-size:12px; }
+    .avatar { width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid var(--line); box-shadow:var(--shadow); }
+    .title { font-weight:700; font-size:14px; }
     nav a { margin-left:16px; font-weight:600; font-size:13px; }
     @media (max-width:640px){ nav{ display:none; } }
-
     .hero { margin:36px 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; }
-    .hero h1 { font-size:clamp(18px,3vw,28px); line-height:1.15; margin:0 0 8px; }
-    .lead { font-size:clamp(14px,1.8vw,16px); color:var(--muted); }
-    .hero-img { width:100%; border-radius:18px; border:1px solid:var(--line); box-shadow:var(--shadow); object-fit:cover; }
-    @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
-
-    h2 { font-size:clamp(18px,2vw,22px); margin:24px 0 10px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
-    .card { background:var(--surface); padding:18px; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); }
-    .card h3 { margin:6px 0 8px; font-size:16px; }
-    .meta { color:var(--muted); font-size:12px; }
-
-    details { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
-    summary { cursor:pointer; font-weight:600; }
-    pre { background: color-mix(in srgb, var(--accent) 8%, transparent); padding:12px; border-radius:12px; overflow:auto;
-          font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; }
-
+    .hero h1 { font-family:Lora, Georgia, serif; font-size:clamp(18px,3vw,28px); line-height:1.2; margin:0 0 6px; }
+    .lead { font-size:clamp(12px,1.6vw,14px); color:var(--muted); }
+    .hero-img { width:240px; max-width:100%; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); object-fit:cover; margin:0 auto; }
+    @media (max-width:860px){ .hero { grid-template-columns:1fr; text-align:center; } .hero-img{ margin-top:8px; } }
     footer { margin-top:40px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; }
-    .theme-toggle { border:1px solid var(--line); background:var(--surface); color:var(--accent-ink); border-radius:12px; padding:6px 10px; font-size:13px; }
   </style>
-
 </head>
 <body>
+
   <div class="wrap">
     <header>
       <div class="brand">
-        <img class="avatar" src="avatar.jpg" alt="Headshot of Christine Wu">
-        <div class="title">Christine Wu</div>
-      </div>
+        <a href="https://github.com/cw0508" target="_blank" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit;">
+          <img class="avatar" src="chessbun.png" alt="Headshot of Christine Wu">
+          <div class="title">ChessBunny</div>
+        </a>
+      </div>      
       <nav aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#notes">Notes</a>
-        <a href="#pubs">Publications</a>
+        <a href="projects.html">Projects</a>
+        <a href="notes.html">Notes</a>
+        <a href="publications.html">Publications</a>
       </nav>
     </header>
 
      <!-- Intro + nice picture -->
-    <section class="hero" id="intro">
+     <section class="hero" id="intro">
       <div>
         <h1>Chuanwan Wu.</h1>
         <p class="lead">
-          Hi, this is Chuanwan (川婉). 川 (chuān) means a stream of water (just like how it looks!),婉 (wǎn) means gentleness. 
+          <!-- Hi, this is Chuanwan (川婉). 川 (chuān) means a stream of water that flows continuously, 婉 (wǎn) means gentleness.  -->
+          Hi, this is Chuanwan (川婉). 川 (chuān) means a stream of water (just like how it looks!), 婉 (wǎn) means gentleness. 
           People often know me more as Christine. 
         </p>
         <p class="lead">
@@ -91,120 +75,9 @@
           Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
         </p>
       </div>
-      <img class="hero-img" src="portrait.jpg" alt="A photo of me" />
+      <img class="hero-img" src="IMG_0402.jpg" alt="A photo of me" style="width:320px;" />
     </section>
-
-    <!-- Project -->
-    <section id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Selected Projects</h2>
-      <div class="grid">
-
-        <article class="card">
-          <h3> Novozymes Enzyme Stability Prediction </h3>
-          <p class="meta">Machine Learning · Computational Biology · 2023</p>
-          <p>
-            Silver Medal (Top 1%, 24/2482) solution in the 
-            <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview" target="_blank">
-              Novozymes Enzyme Stability Prediction
-            </a> Machine Learning competition on Kaggle.
-          </p>
-          <p> 
-            <a href="https://github.com/yourusername/novozymes-silver-solution" target="_blank">Code</a> · 
-            <a href="https://github.com/yourusername/novozymes-silver-solution/blob/main/report.md" target="_blank">Report</a>
-          </p>
-        </article>        
-
-        <article class="card">
-          <h3>Runge-Kutta 5(RK5)</h3>
-          <p class="meta">Numerical Method · Nonlinear PDE · 2024</p>
-          <p> Numerical Demonstration of Abel-Ruffini via Quintic Root Finding (RK5) for Nonlinear Wave Simulations <a href="#">Preprint</a> · <a href="#">Slides</a></p>
-        </article>
-
-        <article class="card">
-          <h3> Kinetic Monte Carlo (KMC)</h3>
-          <p class="meta">Algorithms · Visualization · 2024</p>
-          <p> Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model. <a href="#">Demo</a></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Presentations -->
-  <section id="talks" aria-labelledby="talks-title">
-    <h2 id="talks-title">Presentations</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Efficient Solvers for PDE X</h3>
-        <p class="meta">Conference on Applied Mathematics · 2024</p>
-        <p>Presented results on fast numerical methods for PDEs.  
-          <a href="slides/pde-solver.pdf" target="_blank">Slides</a> · 
-          <a href="https://youtu.be/example" target="_blank">Recording</a>
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Optimization and Geometry Y</h3>
-        <p class="meta">Graduate Seminar · 2023</p>
-        <p>Invited talk for graduate students on convex optimization methods.  
-          <a href="slides/optimization.pdf" target="_blank">Slides</a>
-        </p>
-      </article>
-    </div>
-  </section>
-
-     <!-- Notes -->
-    <section id="notes" aria-labelledby="notes-title">
-      <h2 id="notes-title">Notes</h2>
-      <div class="grid">
-
-        <article class="card">
-          <h3>Harmonic analysis</h3>
-          <p class="meta">Updated 2025-01</p>
-          <p>NOTES <a href="#">Read</a></p>
-        </article>
-
-        <article class="card">
-          <h3>Asymptotics analysis</h3>
-          <p class="meta">Updated 2025-01</p>
-          <p>From steepest descent to Adam with intuition and pitfalls. <a href="#">Read</a></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Publications -->
-    <section id="pubs" aria-labelledby="pubs-title">
-      <h2 id="pubs-title">Publications</h2>
-      <div class="card" style="margin-top:12px;">
-        <h3>
-          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">
-            Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
-          </a>
-        </h3>
-        <p class="meta">
-          Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Qaiser, N., Cai, Y., Lu, A.-Y., Qi, K., Fu, J.-H., Chiang, Y.-H., Yang, Z., Ding, L., Ali, O. S., Xu, W.,Zhang, W., Hassine, M. B., Kong, J., Chen, H.-Y., & Tung, V.
-          <em>Nature Communications</em>, 2022. 
-          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">Read Paper</a>
-        </p>
-      </div>      
-
-      <div class="card" style="margin-top:12px;">
-        <h3>
-          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">
-            Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
-          </a>
-        </h3>
-        <p class="meta">
-          Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Chen, Y.-C., Chiu, M.-H., Hattar, K., Krogstad, J. A., Chou, S. S., Li, L.-J., Kong, J., Tung, V.
-          <em>Communications Materials</em>, 2020. 
-          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">Read Paper</a>
-        </p>
-      </div>      
-    </section>
-
-    <footer>
-      <span>© <span id="y"></span> Christine Wu</span>
-      <button id="themeToggle" class="theme-toggle">🌗 Theme</button>
-    </footer>
-
+    <!-- Thank‑you note + motto (optional) -->
     <!-- <p style="text-align:center; font-size:14px; color:#334155; margin-top:16px;
     font-family:'Noto Serif SC','Songti SC','STSong','SimSun',serif;
     font-weight:600; letter-spacing:0.5px;">
@@ -215,43 +88,15 @@
       A light that glows without blinding,<br />
       like still waters concealing great depths. 🌊
     </p> -->
-
-    <!-- <p style="text-align:center; font-size:14px; color:#475569; font-style:italic;
-    font-family:'Georgia','Times New Roman',serif; margin-top:2px; line-height:1.4;">
-    “A strong memory, concentration, imagination, and a strong will”. <br />
-    - Bobby Fischer
-    </p> -->
-
-    <p style="text-align:center; font-size:14px; color:#334155; margin-top:16px;
-    font-family:'Noto Serif SC','Songti SC','STSong','SimSun',serif;
-    font-weight:600; letter-spacing:0.5px;">
-    在虚无中永存。
     
-    <p style="text-align:center; font-size:14px; color:#475569; font-style:italic;
-      font-family:'Georgia','Times New Roman',serif; margin-top:2px; line-height:1.4;">
-      To attain eternity within absurd nothingness.
-    </p>
-  
     <footer>
-      <div style="flex-basis:100%; text-align:center; margin-top:16px; font-size:11px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
-        Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way.  
-        You lit a lamp in my darkest times and helped me steer the boat on my journey — without you, I would not be the person I am today.
-      </div>
+      <span>© <span id="y"></span> Chuanwan Wu</span>
+      <span style="flex-basis:100%; text-align:center; margin-top:12px; font-size:12px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
+        Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way. You lit a lamp in my darkest times and helped me steer the boat on my journey — without you, I would not be the person I am today.
+      </span>
     </footer>
   </div>
 
-  <script>
-    // Year + theme toggle (safe, tiny)
-    document.getElementById('y').textContent = new Date().getFullYear();
-    (function(){
-      const key='theme-preference', root=document.documentElement, btn=document.getElementById('themeToggle');
-      const saved=localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved);
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next); localStorage.setItem(key, next);
-      });
-    })();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

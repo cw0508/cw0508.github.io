@@ -1,0 +1,64 @@
+<!-- ===============================
+FILE: notes.html  (Notes page)
+================================== -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Christine Wu — Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root { --bg:#f8fafc; --surface:#fff; --fg:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#0ea5e9; --shadow:0 8px 24px rgba(2,6,23,.08);}  
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); line-height:1.65; font-size:14px; }
+    a { color:var(--accent); text-decoration:none; } a:hover{ text-decoration:underline; }
+    .wrap { max-width:980px; margin:0 auto; padding:28px 20px 80px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid var(--line); }
+    nav a { margin-left:16px; font-weight:600; font-size:13px; }
+    h1 { font-size:22px; margin:16px 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+    .card { background:var(--surface); padding:16px; border-radius:16px; border:1px solid var(--line); box-shadow:var(--shadow); }
+    .card h3 { margin:6px 0 8px; font-size:16px; }
+    .meta { color:var(--muted); font-size:12px; }
+    footer { margin-top:40px; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="avatar" src="avatar.jpg" alt="Christine" />
+        <strong>Christine Wu</strong>
+      </div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="notes.html" aria-current="page">Notes</a>
+        <a href="publications.html">Publications</a>
+      </nav>
+    </header>
+
+    <h1>Notes</h1>
+    <div class="grid">
+      <article class="card">
+        <h3>Numerical Linear Algebra Cheatsheet</h3>
+        <p class="meta">Updated 2025‑01</p>
+        <p>Key decompositions, conditioning, and iterative methods. <a href="notes/nla-cheatsheet.pdf" target="_blank">Read PDF</a></p>
+      </article>
+      <article class="card">
+        <h3>Gradient‑Based Methods: A Quick Guide</h3>
+        <p class="meta">Updated 2025‑01</p>
+        <p>From steepest descent to Adam with intuition and pitfalls. <a href="notes/grad-methods.pdf" target="_blank">Read PDF</a></p>
+      </article>
+    </div>
+
+    <footer>© <span id="y"></span> Christine Wu</footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
