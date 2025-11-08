@@ -1,0 +1,424 @@
+<!-- ===============================
+FILE: index.html  (Homepage — intro only)
+================================== -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>♟️Chuanwan(川婉) Wu — Research Portfolio</title>
+  <meta name="description" content="Introduction, selected projects, notes, and publications by Christine Wu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+
+ <!-- Style -->
+  <style>
+    :root {
+      --bg:#f8fafc; --surface:#fff; --fg:#0f172a; --muted:#475569;
+      --line:#e2e8f0; --accent:#0ea5e9; --accent-ink:#075985; --shadow:0 8px 24px rgba(2,6,23,.08);
+    }
+    * { box-sizing:border-box; }
+  
+    /* 🔧 Adjust this one value to scale everything site-wide */
+    html {
+      font-size: 9px; /* try 9px for smaller text, 11px for slightly larger */
+    }
+  
+    body {
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+      line-height:1.65;
+      font-size: 1.2rem; /* was 12px */
+    }
+  
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    img { max-width:100%; display:block; }
+    .wrap { max-width:980px; margin:0 auto; padding:2.8rem 2rem 8rem; }
+  
+    header { display:flex; align-items:center; justify-content:space-between; gap:1.6rem; }
+    .brand { display:flex; align-items:center; gap:1.4rem; }
+    .avatar { width:6.4rem; height:6.4rem; border-radius:50%; object-fit:cover; border:0.2rem solid var(--line); box-shadow:var(--shadow); }
+    .title { font-weight:700; font-size:1.1rem; } /* was 12px */
+    nav a { margin-left:1.6rem; font-weight:600; font-size:1.3rem; } /* was 13px */
+    @media (max-width:640px){ nav{ display:none; } }
+  
+    .hero { margin:3.6rem 0 2rem; display:grid; grid-template-columns:1fr 1fr; gap:2.4rem; align-items:center; }
+    .hero h1 { font-size:clamp(1.6rem,2.5vw,2.2rem); line-height:1.15; margin:0 0 0.8rem; }
+    .lead { font-size:clamp(1.2rem,1.6vw,1.4rem); color:var(--muted); }
+    .hero-img { width:100%; border-radius:1.8rem; border:0.1rem solid var(--line); box-shadow:var(--shadow); object-fit:cover; }
+    @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
+  
+    h2 { font-size:clamp(1.8rem,2vw,2.2rem); margin:2.4rem 0 1rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(28rem,1fr)); gap:1.8rem; }
+    .card { background:var(--surface); padding:1.8rem; border-radius:1.8rem; border:0.1rem solid var(--line); box-shadow:var(--shadow); }
+    .card h3 { margin:0.6rem 0 0.8rem; font-size:1.6rem; } /* was 16px */
+    .meta { color:var(--muted); font-size:1.2rem; } /* was 12px */
+  
+    details { background:var(--surface); border:0.1rem solid var(--line); border-radius:1.2rem; padding:1rem 1.2rem; }
+    summary { cursor:pointer; font-weight:600; font-size:1.3rem; }
+    pre {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+      padding:1.2rem;
+      border-radius:1.2rem;
+      overflow:auto;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:1.3rem; /* was 13px */
+    }
+  
+    footer {
+      margin-top:4rem;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.2rem;
+      flex-wrap:wrap;
+      font-size:1.3rem; /* was 13px */
+    }
+    .theme-toggle {
+      border:0.1rem solid var(--line);
+      background:var(--surface);
+      color:var(--accent-ink);
+      border-radius:1.2rem;
+      padding:0.6rem 1rem;
+      font-size:1.3rem; /* was 13px */
+    }
+  </style>
+  
+<!-- header -->
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="https://github.com/cw0508" target="_blank" style="display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit;">
+          <img class="avatar" src="chessbun.png" alt="Headshot of Christine Wu">
+          <div class="title">ChessBunny</div>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#pubs">Publications</a>
+      </nav>
+    </header>
+
+     <!-- Intro + nice picture -->
+    <section class="hero" id="intro">
+      <div>
+        <h1>Chuanwan Wu.</h1>
+        <p class="lead">
+          Hi, this is Chuanwan (川婉). 川 (chuān) means a stream of water (just like how it looks!), 婉 (wǎn) means gentleness. 
+          People often know me more as Christine. 
+        </p>
+        <p class="lead">
+          I received my Bachelor's in Chemical & Biomolecular Engineering at <a href="https://chemistry.berkeley.edu/">UC Berkeley's College of Chemistry</a>. 
+          I then worked for a few years at biotechs. 
+          Now, I'm a Master's student in Scientific Computing at the <a href="https://cims.nyu.edu/dynamic/">Courant Institute</a> at NYU. 
+        </p>
+        <p class="lead">
+          My undergraduate research was focusing on a 2D material, <a href="https://en.wikipedia.org/wiki/Molybdenum_disulfide">Molybdenum disulfide (MoS2)</a>, using <a href="https://en.wikipedia.org/wiki/Electrohydrodynamics">electrohydrodynamics </a> techniques.
+          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
+        </p>
+        <p class="lead">
+          At Courant, I'm working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing the computational algorthims for Multidimensional Riemann Problem on <a href = "https://epubs.siam.org/doi/10.1137/1.9781611970562">Hyperbolic Systems of Conservation Laws</a>. 
+      </p>
+        <p class="lead">
+          Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
+        </p>
+      </div>
+      <img class="hero-img" src="IMG_0402.jpg" alt="A photo of me" style="width:280px;" />
+    </section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" aria-labelledby="projects-title" style="margin-top:40px;">
+  <h2 id="projects-title">Selected Projects</h2>
+
+  <div class="projects">
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="media">
+        <video autoplay loop muted playsinline poster="novozymes_preview.jpg">
+          <source src="novozymes_demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="info">
+        <h3>Novozymes Enzyme Stability Prediction</h3>
+        <p class="meta">Machine Learning · Computational Biology · 2023</p>
+        <p>
+          Silver Medal (Top 1%, 24/2482) solution in the 
+          <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview" target="_blank">
+            Novozymes Enzyme Stability Prediction
+          </a> machine learning competition on Kaggle.
+        </p>
+        <p>
+          <a href="https://github.com/yourusername/novozymes-silver-solution" target="_blank">Code</a> · 
+          <a href="https://github.com/yourusername/novozymes-silver-solution/blob/main/report.md" target="_blank">Report</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <div class="media">
+        <video autoplay loop muted playsinline poster="kmc_preview.jpg">
+          <source src="kmc_demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="info">
+        <h3>Kinetic Monte Carlo (KMC) for Falicov-Kimball model </h3>
+        <p class="meta">Probability · Computational and Applied Mathematics · 2024</p>
+        <p>
+          Kinetic Monte Carlo simulations on the Falicov-Kimball model. 
+          <a href="#">Demo</a>
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Project 3 -->
+    <div class="project">
+      <div class="media">
+        <video autoplay loop muted playsinline poster="kmc_preview.jpg">
+          <source src="kmc_demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="info">
+        <h3>Runge-Kutta 5(RK5) on Belousov-Zhabotinsky (BZ) reaction</h3>
+        <p class="meta">Numerical Method · Nonlinear PDE · Chemical Oscillator · 2025</p>
+          <p> Numerical Demonstration of Abel-Ruffini theorem via Quintic Root Finding (RK5) on Belousov-Zhabotinsky reaction. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* --- PROJECTS SECTION --- */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem; /* was 4rem — reduced vertical space between projects */
+    margin-top: 1.6rem;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr; /* slightly closer ratio */
+    gap: 1.2rem; /* was 2.4rem — reduced space between video and text */
+    align-items: center;
+  }
+
+  .project .media video,
+  .project .media img {
+    width: 100%;
+    max-width: 280px;   /* slightly smaller media */
+    max-height: 180px;
+    border-radius: 1.2rem;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    justify-self: center;
+  }
+
+  .project .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project .info h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.3rem;
+    font-weight: 600;
+  }
+
+  .project .meta {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .project p {
+    margin: 0.3rem 0;
+  }
+
+  .project a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .project a:hover {
+    text-decoration: underline;
+  }
+
+  /* stack vertically on small screens */
+  @media (max-width: 800px) {
+    .project {
+      grid-template-columns: 1fr;
+      gap: 1rem; /* smaller vertical gap for mobile too */
+    }
+    .project .media {
+      order: -1; /* move video/image above text */
+    }
+  }
+</style>
+
+<!-- NOTES -->
+<section id="notes" aria-labelledby="notes-title">
+  <h2 id="notes-title">Reading Notes</h2>
+
+    <li style="margin-bottom:24px;">
+      <h3 style="margin:0; font-size:16px;">Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
+      <p class="meta">Updated 2025-09 · PDF</p>
+      <p style="margin:4px 0 10px;">
+        Harmonic Analysis: Oscillatory Integrals of the First Kind
+        <a href="[1]harmonic_analysis_ver3_final_cw.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </p>
+  
+      <details>
+        <summary style="cursor:pointer;">▶ Preview</summary>
+        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <iframe
+            src="[1]harmonic_analysis_ver3_final_cw.pdf#view=FitH"
+            title="Harmonic Analysis PDF preview"
+            style="width:100%; height:720px; display:block; border:0;"
+          ></iframe>
+        </div>
+      </details>
+    </li>
+  </ul>
+  
+</section>
+
+<!-- Publications -->
+<section id="pubs" aria-labelledby="pubs-title">
+  <h2 id="pubs-title">Publications</h2>
+
+  <ul style="list-style:none; padding:0; margin:0;">
+    <li style="margin-bottom:24px;">
+      <h3 style="margin:0; font-size:1.6rem; font-weight:600;">
+        Efficient Solvers for Nonlinear PDEs
+      </h3>
+      <p class="meta" style="font-size:1.2rem; color:var(--muted); margin:4px 0 8px;">
+        Journal of Computational Physics · 2024
+      </p>
+      <p style="margin:4px 0 10px; font-size:1.15rem; line-height:1.5;">
+        Introduces an efficient multigrid-based solver for nonlinear PDE systems with improved convergence.
+        <a href="https://doi.org/example" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
+          DOI
+        </a> ·
+        <a href="papers/pde-solver.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
+          PDF
+        </a>
+      </p>
+    </li>
+
+    <li style="margin-bottom:24px;">
+      <h3 style="margin:0; font-size:1.6rem; font-weight:600;">
+        Optimization and Geometry in High-Dimensional Spaces
+      </h3>
+      <p class="meta" style="font-size:1.2rem; color:var(--muted); margin:4px 0 8px;">
+        SIAM Journal on Optimization · 2023
+      </p>
+      <p style="margin:4px 0 10px; font-size:1.15rem; line-height:1.5;">
+        Explores geometric aspects of convex optimization and provides theoretical guarantees for sparse recovery.
+        <a href="https://doi.org/example2" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
+          DOI
+        </a> ·
+        <a href="papers/optimization-geometry.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
+          PDF
+        </a>
+      </p>
+    </li>
+  </ul>
+</section>
+
+    <!-- <section id="pubs" aria-labelledby="pubs-title">
+      <h2 id="pubs-title">Publications</h2>
+      <div class="card" style="margin-top:12px;">
+        <h3>
+          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">
+            Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
+          </a>
+        </h3>
+        <p class="meta">
+          Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Qaiser, N., Cai, Y., Lu, A.-Y., Qi, K., Fu, J.-H., Chiang, Y.-H., Yang, Z., Ding, L., Ali, O. S., Xu, W.,Zhang, W., Hassine, M. B., Kong, J., Chen, H.-Y., & Tung, V.
+          <em>Nature Communications</em>, 2022. 
+          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">Read Paper</a>
+        </p>
+      </div>      
+
+      <div class="card" style="margin-top:12px;">
+        <h3>
+          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">
+            Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
+          </a>
+        </h3>
+        <p class="meta">
+          Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Chen, Y.-C., Chiu, M.-H., Hattar, K., Krogstad, J. A., Chou, S. S., Li, L.-J., Kong, J., Tung, V.
+          <em>Communications Materials</em>, 2020. 
+          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">Read Paper</a>
+        </p>
+      </div>      
+    </section> -->
+
+    <footer>
+      <span>© <span id="y"></span> Chuanwan Wu</span>
+    </footer>
+
+    <footer>
+      <div style="flex-basis:100%; text-align:center; margin-top:16px; font-size:11px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
+        Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way.  
+        You lit a lamp in my darkest times and helped me steer the boat on my journey — without you, I would not be the person I am today.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Year + theme toggle (safe, tiny)
+    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      const key='theme-preference', root=document.documentElement, btn=document.getElementById('themeToggle');
+      const saved=localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved);
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next); localStorage.setItem(key, next);
+      });
+    })();
+  </script>
+</body>
+</html>
+
+<!-- PRESENTATIONS
+<section id="talks" aria-labelledby="talks-title">
+  <h2 id="talks-title">Presentations</h2>
+  <div class="talks">
+    <div class="talk">
+      <h3>Efficient Solvers for PDE X</h3>
+      <p class="meta">Conference on Applied Mathematics · 2024</p>
+      <p>
+        Presented results on fast numerical methods for PDEs.  
+        <a href="slides/pde-solver.pdf" target="_blank">Slides</a> · 
+        <a href="https://youtu.be/example" target="_blank">Recording</a>
+      </p>
+    </div>
+
+    <div class="talk">
+      <h3>Optimization and Geometry Y</h3>
+      <p class="meta">Graduate Seminar · 2023</p>
+      <p>
+        Invited talk for graduate students on convex optimization methods.  
+        <a href="slides/optimization.pdf" target="_blank">Slides</a>
+      </p>
+    </div>
+  </div>
+</section> -->
