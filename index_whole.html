@@ -13,6 +13,7 @@ FILE: index.html  (Homepage — intro only)
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
 
  <!-- Style -->
   <style>
@@ -89,6 +90,18 @@ FILE: index.html  (Homepage — intro only)
       padding:0.6rem 1rem;
       font-size:1.3rem; /* was 13px */
     }
+
+    /* --- LaTeX-inspired serif style for Research section --- */
+  /* LaTeX-like italics only for research descriptions */
+  #notes .desc {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--fg);
+  }
+
+
   </style>
   
 <!-- header -->
@@ -102,9 +115,10 @@ FILE: index.html  (Homepage — intro only)
           <div class="title">ChessBunny</div>
       </div>
       <nav aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#notes">Notes</a>
-        <a href="#pubs">Publications</a>
+        <a href="#research">Research & Publications</a>
+        <a href="#notes">Reading Notes</a>
+        <a href="#coursework">Coursework</a>
+        <a href="#projects">Independent Projects</a>
       </nav>
     </header>
 
@@ -118,12 +132,13 @@ FILE: index.html  (Homepage — intro only)
         </p>
         <p class="lead">
           I received my Bachelor's in Chemical & Biomolecular Engineering at <a href="https://chemistry.berkeley.edu/">UC Berkeley's College of Chemistry</a>. 
-          I then worked for a few years at biotechs. 
+          I then worked for a few years at biotech companies. 
           Now, I'm a Master's student in Scientific Computing at the <a href="https://cims.nyu.edu/dynamic/">Courant Institute</a> at NYU. 
         </p>
         <p class="lead">
           My undergraduate research was focusing on a 2D material, <a href="https://en.wikipedia.org/wiki/Molybdenum_disulfide">Molybdenum disulfide (MoS2)</a>, using <a href="https://en.wikipedia.org/wiki/Electrohydrodynamics">electrohydrodynamics </a> techniques.
-          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
+          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor and also had the privilege to be affiliated with <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and <a href="https://lcls.slac.stanford.edu/">Linac Coherent Light Source</a>
+          at <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
         </p>
         <p class="lead">
           At Courant, I'm working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing the computational algorthims for Multidimensional Riemann Problem on <a href = "https://epubs.siam.org/doi/10.1137/1.9781611970562">Hyperbolic Systems of Conservation Laws</a>. 
@@ -135,152 +150,67 @@ FILE: index.html  (Homepage — intro only)
       <img class="hero-img" src="IMG_0402.jpg" alt="A photo of me" style="width:280px;" />
     </section>
 
-<!-- PROJECTS SECTION -->
-<section id="projects" aria-labelledby="projects-title" style="margin-top:40px;">
-  <h2 id="projects-title">Selected Projects</h2>
 
-  <div class="projects">
+<!---RESEARCH PROJECTS-->
+<section id="research" aria-labelledby="notes-title">
+  <h2 id="notes-title">Research and Publications</h2>
+  <ul style="list-style:none; padding:0; margin:0;">
+      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">
+        Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
+      </h3>
+      <p class="meta">
+        Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Kong, J., Tung, V, <em>et al.</em>
+        <em>Nature Communications</em>, 2022. 
+        <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener"
+        style="background:#3ba9f3; color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Paper Link]</a>
+      </p>
 
-    <!-- Project 1 -->
-    <div class="project">
-      <div class="media">
-        <video autoplay loop muted playsinline poster="novozymes_preview.jpg">
-          <source src="novozymes_demo.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="info">
-        <h3>Novozymes Enzyme Stability Prediction</h3>
-        <p class="meta">Machine Learning · Computational Biology · 2023</p>
-        <p>
-          Silver Medal (Top 1%, 24/2482) solution in the 
-          <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview" target="_blank">
-            Novozymes Enzyme Stability Prediction
-          </a> machine learning competition on Kaggle.
-        </p>
-        <p>
-          <a href="https://github.com/yourusername/novozymes-silver-solution" target="_blank">Code</a> · 
-          <a href="https://github.com/yourusername/novozymes-silver-solution/blob/main/report.md" target="_blank">Report</a>
-        </p>
-      </div>
-    </div>
+      <details>
+        <summary style="cursor:pointer;">▶ Preview</summary>
+        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <iframe
+            src="paper2.pdf"
+            title="Harmonic Analysis PDF preview"
+            style="width:100%; height:720px; display:block; border:0;"
+          ></iframe>
+        </div>
+      </details>
 
-    <!-- Project 2 -->
-    <div class="project">
-      <div class="media">
-        <video autoplay loop muted playsinline poster="kmc_preview.jpg">
-          <source src="kmc_demo.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="info">
-        <h3>Kinetic Monte Carlo (KMC) for Falicov-Kimball model </h3>
-        <p class="meta">Probability · Computational and Applied Mathematics · 2024</p>
-        <p>
-          Kinetic Monte Carlo simulations on the Falicov-Kimball model. 
-          <a href="#">Demo</a>
-        </p>
-      </div>
-    </div>
+      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">
+        Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
+      </h3>
+      <p class="meta">
+        Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Kong, J., Tung, V, <em>et al.</em>
+        <em>Communications Materials</em>, 2020. 
+        <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener"
+        style="background:#3ba9f3; color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Paper Link]</a>
+        <a href="paper1_presentation.pdf" target="_blank" rel="noopener"
+        style="background:#0c8cd3; color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Presentation]</a>
+      </p>
 
-
-    <!-- Project 3 -->
-    <div class="project">
-      <div class="media">
-        <video autoplay loop muted playsinline poster="kmc_preview.jpg">
-          <source src="kmc_demo.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="info">
-        <h3>Runge-Kutta 5(RK5) on Belousov-Zhabotinsky (BZ) reaction</h3>
-        <p class="meta">Numerical Method · Nonlinear PDE · Chemical Oscillator · 2025</p>
-          <p> Numerical Demonstration of Abel-Ruffini theorem via Quintic Root Finding (RK5) on Belousov-Zhabotinsky reaction. <a href="#">Preprint</a> · <a href="#">Slides</a></p>
-        </p>
-      </div>
-    </div>
-
-  </div>
+      <details>
+        <summary style="cursor:pointer;">▶ Preview</summary>
+        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <iframe
+            src="paper1.pdf"
+            title="Harmonic Analysis PDF preview"
+            style="width:100%; height:720px; display:block; border:0;"
+          ></iframe>
+        </div>
+      </details>
+  </ul>
 </section>
 
-<style>
-  /* --- PROJECTS SECTION --- */
-  .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem; /* was 4rem — reduced vertical space between projects */
-    margin-top: 1.6rem;
-  }
-
-  .project {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr; /* slightly closer ratio */
-    gap: 1.2rem; /* was 2.4rem — reduced space between video and text */
-    align-items: center;
-  }
-
-  .project .media video,
-  .project .media img {
-    width: 100%;
-    max-width: 280px;   /* slightly smaller media */
-    max-height: 180px;
-    border-radius: 1.2rem;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
-    object-fit: cover;
-    justify-self: center;
-  }
-
-  .project .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .project .info h3 {
-    font-size: 1.5rem;
-    margin: 0 0 0.3rem;
-    font-weight: 600;
-  }
-
-  .project .meta {
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-
-  .project p {
-    margin: 0.3rem 0;
-  }
-
-  .project a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .project a:hover {
-    text-decoration: underline;
-  }
-
-  /* stack vertically on small screens */
-  @media (max-width: 800px) {
-    .project {
-      grid-template-columns: 1fr;
-      gap: 1rem; /* smaller vertical gap for mobile too */
-    }
-    .project .media {
-      order: -1; /* move video/image above text */
-    }
-  }
-</style>
 
 <!-- NOTES -->
 <section id="notes" aria-labelledby="notes-title">
   <h2 id="notes-title">Reading Notes</h2>
 
-    <li style="margin-bottom:24px;">
-      <h3 style="margin:0; font-size:16px;">Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
-      <p class="meta">Updated 2025-09 · PDF</p>
+      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
       <p style="margin:4px 0 10px;">
-        Harmonic Analysis: Oscillatory Integrals of the First Kind
-        <a href="[1]harmonic_analysis_ver3_final_cw.pdf" target="_blank" rel="noopener">Open in new tab</a>
+       Based on the book <em>Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals</em> by Elias M. Stein.
+        <a href="[1]harmonic_analysis_ver3_final_cw.pdf" target="_blank" rel="noopener"
+        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
       </p>
   
       <details>
@@ -293,132 +223,299 @@ FILE: index.html  (Homepage — intro only)
           ></iframe>
         </div>
       </details>
-    </li>
-  </ul>
+
+      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Asymptotics: Geometric Optics, Stationary phase, and Homogenization</h3>
+      <p style="margin:4px 0 10px;">
+      Based on the book <em>Princeton Lectures in Analysis: Fourier Analysis</em> by Elias M. Stein and the book <em>Partial Differential Equations</em> by Lawrence C. Evans. 
+        <a href="[2]geometric_optics_ver4_final_cw.pdf" target="_blank" rel="noopener"
+        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
+      </p>
   
-</section>
+      <details>
+        <summary style="cursor:pointer;">▶ Preview</summary>
+        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <iframe
+            src="[2]geometric_optics_ver4_final_cw.pdf#view=FitH"
+            title="Harmonic Analysis PDF preview"
+            style="width:100%; height:720px; display:block; border:0;"
+          ></iframe>
+        </div>
+      </details>
 
-<!-- Publications -->
-<section id="pubs" aria-labelledby="pubs-title">
-  <h2 id="pubs-title">Publications</h2>
-
-  <ul style="list-style:none; padding:0; margin:0;">
-    <li style="margin-bottom:24px;">
-      <h3 style="margin:0; font-size:1.6rem; font-weight:600;">
-        Efficient Solvers for Nonlinear PDEs
-      </h3>
-      <p class="meta" style="font-size:1.2rem; color:var(--muted); margin:4px 0 8px;">
-        Journal of Computational Physics · 2024
+      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Homogenization and Asymptotic Analysis for Highly Oscillating Periodic Structures</h3>
+      <!-- <p class="meta">Updated 2025-06 · PDF</p> -->
+      <p style="margin:4px 0 10px;">
+        Based on the book <em>Asymptotic Analysis for Periodic Structures</em> by A. Bensoussan, J.-L.Lions, and G.Papanicolaou.
+        <a href="[3]homogenization_ver1_cw.pdf" target="_blank" rel="noopener"
+        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
       </p>
-      <p style="margin:4px 0 10px; font-size:1.15rem; line-height:1.5;">
-        Introduces an efficient multigrid-based solver for nonlinear PDE systems with improved convergence.
-        <a href="https://doi.org/example" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
-          DOI
-        </a> ·
-        <a href="papers/pde-solver.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
-          PDF
-        </a>
-      </p>
-    </li>
-
-    <li style="margin-bottom:24px;">
-      <h3 style="margin:0; font-size:1.6rem; font-weight:600;">
-        Optimization and Geometry in High-Dimensional Spaces
-      </h3>
-      <p class="meta" style="font-size:1.2rem; color:var(--muted); margin:4px 0 8px;">
-        SIAM Journal on Optimization · 2023
-      </p>
-      <p style="margin:4px 0 10px; font-size:1.15rem; line-height:1.5;">
-        Explores geometric aspects of convex optimization and provides theoretical guarantees for sparse recovery.
-        <a href="https://doi.org/example2" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
-          DOI
-        </a> ·
-        <a href="papers/optimization-geometry.pdf" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">
-          PDF
-        </a>
-      </p>
-    </li>
+  
+      <details>
+        <summary style="cursor:pointer;">▶ Preview</summary>
+        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+          <iframe
+            src="[3]homogenization_ver1_cw.pdf#view=FitH"
+            title="Harmonic Analysis PDF preview"
+            style="width:100%; height:720px; display:block; border:0;"
+          ></iframe>
+        </div>
+      </details>
   </ul>
 </section>
 
-    <!-- <section id="pubs" aria-labelledby="pubs-title">
-      <h2 id="pubs-title">Publications</h2>
-      <div class="card" style="margin-top:12px;">
-        <h3>
-          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">
-            Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
-          </a>
-        </h3>
-        <p class="meta">
-          Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Qaiser, N., Cai, Y., Lu, A.-Y., Qi, K., Fu, J.-H., Chiang, Y.-H., Yang, Z., Ding, L., Ali, O. S., Xu, W.,Zhang, W., Hassine, M. B., Kong, J., Chen, H.-Y., & Tung, V.
-          <em>Nature Communications</em>, 2022. 
-          <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener">Read Paper</a>
-        </p>
-      </div>      
 
-      <div class="card" style="margin-top:12px;">
-        <h3>
-          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">
-            Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
-          </a>
-        </h3>
-        <p class="meta">
-          Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Chen, Y.-C., Chiu, M.-H., Hattar, K., Krogstad, J. A., Chou, S. S., Li, L.-J., Kong, J., Tung, V.
-          <em>Communications Materials</em>, 2020. 
-          <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener">Read Paper</a>
+<!-- Selected Coursework-->
+<section id="coursework" aria-labelledby="notes-title">
+  <h2 id="notes-title">Selected Coursework</h2>
+  <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Numerical Methods II (MATH-GA.2020) HW5: Fourier Stability Analysis, Boundary Layers on Advection-Diffusion Equation</h3>
+  <p style="margin:4px 0 10px;">
+    This specific homework was selectd to resonate with the reading notes presented earlier. 
+    <a href="NM2_HW5_final_final_cw.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">
+    [Open in New Tab]
+  </a>
+  </p>
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="NM2_HW5_final_final_cw.pdf#view=FitH"
+        title="Harmonic Analysis PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
+
+  <h3 style="margin:0; font-size:1.5rem; font-weight:600;"> Applied Stochastic Analysis (MATH-GA 2704) Final Project:
+    Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model </h3>
+  <p style="margin:4px 0 10px;">
+    Based on the paper <em>Anomalous phase separation in a correlated electron system: Machine-learning-enabled large-scale KMC simulations.</em>  
+    <a href="https://www.pnas.org/doi/10.1073/pnas.2119957119"
+       target="_blank" rel="noopener"
+       style="background:var(--accent); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:6px;">
+       [Original Paper]
+    </a>
+    <a href="ASA_final_project_final_ver.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">
+    [Open in New Tab]
+  </a>
+  </p>
+
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="ASA_final_project_final_ver.pdf#view=FitH"
+        title="Harmonic Analysis PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
+
+  <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Spec Top in CS: Protein Design (CSCI-GA.3033-​111) Final Presentation: Diffusion-Based Generative Models for Protein Structures</h3>
+  <!-- <p class="meta">Updated 2025-06 · PDF</p> -->
+  <p style="margin:4px 0 10px;">
+    Based on the paper <em>Antigen-Specific Antibody Design and Optimization with Diffusion-Based Generative Models.</em>  
+    <a href="https://www.biorxiv.org/content/biorxiv/early/2022/07/25/2022.07.10.499510.full.pdf"
+       target="_blank" rel="noopener"
+       style="background:var(--accent); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:6px;">
+       [Original Paper]
+    </a>
+    <a href="Protein_design_pre_12022024.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">
+    [Open in New Tab]
+  </a>
+  </p>
+
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="Protein_design_pre_12022024.pdf#view=FitH"
+        title="Harmonic Analysis PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
+</ul>
+
+</section>
+    
+<!-- PROJECTS SECTION -->
+<section id="projects" aria-labelledby="projects-title" style="margin-top:40px;">
+  <h2 id="projects-title">Selected Independent Projects</h2>
+
+  <div class="projects">
+
+    <!-- Project 1 -->
+    <div class="project">
+      <div class="media" style="position:relative; width:260px; border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow);">
+        <a href="https://www.youtube.com/watch?v=LL3kVtc-4vY" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/LL3kVtc-4vY/hqdefault.jpg" alt="KMC preview" style="width:100%; display:block;">
+          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                      background:rgba(255,255,255,0.85); border-radius:50%; width:48px; height:48px;
+                      display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+                      box-shadow:0 2px 6px rgba(0,0,0,0.2); color:black;">▶</div>
+        </a>
+      </div>
+      
+    <script>
+      document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+        const button = wrapper.querySelector('.play-btn');
+        button.addEventListener('click', () => {
+          const iframe = document.createElement('iframe');
+          iframe.src = "https://www.youtube.com/embed/LL3kVtc-4vY?autoplay=1&mute=1";
+          iframe.title = "BZ rxn";
+          iframe.frameBorder = "0";
+          iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+          iframe.allowFullscreen = true;
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          wrapper.innerHTML = ""; // remove image and button
+          wrapper.appendChild(iframe);
+        });
+      });
+    </script>
+     
+      <div class="info">
+        <h3>Runge-Kutta 5(RK5) on Belousov-Zhabotinsky (BZ) reaction</h3>
+        <p class="meta">Numerical Method · Nonlinear PDE · Chemical Oscillator · 2025</p>
+          <p> Numerical demonstration of <a href="https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem">Abel-Ruffini theorem</a> via quintic root bypass (explicit RK5) on 
+          <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction">chaotic Belousov-Zhabotinsky (BZ) reaction</a>  [Preprint undergoing].
         </p>
-      </div>      
-    </section> -->
+      </div>
+    </div>
+
+        <!-- Project 1 -->
+        <div class="project">
+          <div class="media" style="position:relative; width:260px; border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow);">
+            <a href="https://www.youtube.com/watch?v=yk14dOOvwMk" target="_blank" rel="noopener">
+              <!-- Real YouTube thumbnail image -->
+              <img src="https://img.youtube.com/vi/yk14dOOvwMk/hqdefault.jpg" alt="Enzyme reaction preview" style="width:100%; display:block;">
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                          background:rgba(255,255,255,0.85); border-radius:50%; width:48px; height:48px;
+                          display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+                          box-shadow:0 2px 6px rgba(0,0,0,0.2); color:black;">▶</div>
+            </a>
+          </div>
+          
+        <script>
+          document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+            const button = wrapper.querySelector('.play-btn');
+            button.addEventListener('click', () => {
+              const iframe = document.createElement('iframe');
+              iframe.src = "https://www.youtube.com/watch?v=yk14dOOvwMk";
+              iframe.title = "enzyme rxn";
+              iframe.frameBorder = "0";
+              iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+              iframe.allowFullscreen = true;
+              iframe.style.width = "100%";
+              iframe.style.height = "100%";
+              wrapper.innerHTML = ""; // remove image and button
+              wrapper.appendChild(iframe);
+            });
+          });
+        </script>
+         
+          <div class="info">
+            <h3>Novozymes Enzyme Stability Prediction</h3>
+            <p class="meta">Machine Learning · Computational Biology · 2023</p>
+            <p>
+              Silver medal (Top 1%, 24/2482) solution in the 
+              <a href="https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/overview" target="_blank">
+                Novozymes Enzyme Stability Prediction
+              </a> machine learning competition on Kaggle [Report and code organzing undergoing].
+          </div>
+        </div>
+  </div>
+</section>
+
+<style>
+/* --- PROJECTS SECTION --- */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* compact spacing between projects */
+  margin-top: 1.2rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: auto 1fr; /* natural media width + flexible text */
+  gap: 1.5rem; /* small space between video and text */
+  align-items: start; /* top-align text */
+}
+
+.project .media video,
+.project .media img {
+  width: 260px; /* smaller fixed width for cleaner flow */
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.project .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top-aligned */
+}
+
+.project .info h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.project .meta {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.project p {
+  margin: 0.3rem 0;
+  line-height: 1.55;
+}
+
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.project a:hover {
+  text-decoration: underline;
+}
+
+/* stack vertically on mobile */
+@media (max-width: 800px) {
+  .project {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .project .media {
+    order: -1;
+  }
+  .project .media video,
+  .project .media img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+
 
     <footer>
       <span>© <span id="y"></span> Chuanwan Wu</span>
-    </footer>
-
-    <footer>
-      <div style="flex-basis:100%; text-align:center; margin-top:16px; font-size:11px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
-        Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way.  
-        You lit a lamp in my darkest times and helped me steer the boat on my journey — without you, I would not be the person I am today.
-      </div>
+      <span style="flex-basis:100%; text-align:center; margin-top:12px; font-size:12px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
+        Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way. You helped me steer the boat on my journey — without you, I would not be the person I am today.
+      </span>
     </footer>
   </div>
 
-  <script>
-    // Year + theme toggle (safe, tiny)
-    document.getElementById('y').textContent = new Date().getFullYear();
-    (function(){
-      const key='theme-preference', root=document.documentElement, btn=document.getElementById('themeToggle');
-      const saved=localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved);
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next); localStorage.setItem(key, next);
-      });
-    })();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
 
-<!-- PRESENTATIONS
-<section id="talks" aria-labelledby="talks-title">
-  <h2 id="talks-title">Presentations</h2>
-  <div class="talks">
-    <div class="talk">
-      <h3>Efficient Solvers for PDE X</h3>
-      <p class="meta">Conference on Applied Mathematics · 2024</p>
-      <p>
-        Presented results on fast numerical methods for PDEs.  
-        <a href="slides/pde-solver.pdf" target="_blank">Slides</a> · 
-        <a href="https://youtu.be/example" target="_blank">Recording</a>
-      </p>
-    </div>
 
-    <div class="talk">
-      <h3>Optimization and Geometry Y</h3>
-      <p class="meta">Graduate Seminar · 2023</p>
-      <p>
-        Invited talk for graduate students on convex optimization methods.  
-        <a href="slides/optimization.pdf" target="_blank">Slides</a>
-      </p>
-    </div>
-  </div>
-</section> -->
+  
