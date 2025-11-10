@@ -75,11 +75,12 @@
   }
   @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
 
-  h2 { font-size:clamp(1.8rem,2vw,2.2rem); margin:2.4rem 0 1rem; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(28rem,1fr)); gap:1.8rem; }
-  .card { background:var(--surface); padding:1.8rem; border-radius:1.8rem; border:0.1rem solid var(--line); box-shadow:var(--shadow); }
-  .card h3 { margin:0.6rem 0 0.8rem; font-size:1.6rem; }
-  .meta { color:var(--muted); font-size:1.2rem; }
+  h2 {
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
+  margin: 2.4rem 0 1rem;
+  color: var(--accent-ink); /* just adds color */
+}
+
 
   details {
     background:var(--surface);
@@ -126,7 +127,41 @@
     line-height:1.7;
     color:var(--fg);
   }
+
+  nav a {
+  color: var(--accent-ink); /* darker blue like the header */
+}
+
+nav a:hover {
+  color: var(--accent); /* lighter on hover for contrast */
+  text-decoration: underline;
+}
+
 </style>
+
+<style>
+  /* Consistent spacing between items in multiple sections */
+  #notes h3,
+  #research h3,
+  #coursework h3 {
+    margin: 1.2rem 0 0.3rem;  /* space above titles */
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  #notes h3 + p,
+  #research h3 + p,
+  #coursework h3 + p {
+    margin-top: 0; /* keeps paragraph snug under title */
+  }
+
+  #notes details,
+  #research details,
+  #coursework details {
+    margin-bottom: 1.2rem; /* spacing between blocks */
+  }
+</style>
+
   
 <!-- header -->
 </head>
@@ -178,11 +213,11 @@
 <!---RESEARCH PROJECTS-->
 <section id="research" aria-labelledby="notes-title">
   <h2 id="notes-title">Research and Publications</h2>
-  <ul style="list-style:none; padding:0; margin:0;">
-      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">
+  
+      <h3>
         Three-dimensional hierarchically porous MoS2 foam as high-rate and stable lithium-ion battery anode
       </h3>
-      <p class="meta">
+      <p style="margin:0 0 10px;">
         Wei, X., Lin, C.-C.,<strong>Wu, C.</strong>, Kong, J., Tung, V, <em>et al.</em>
         <em>Nature Communications</em>, 2022. 
         <a href="https://www.nature.com/articles/s41467-022-33790-z" target="_blank" rel="noopener"
@@ -200,10 +235,10 @@
         </div>
       </details>
 
-      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">
+      <h3>
         Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
       </h3>
-      <p class="meta">
+      <p style="margin:0 0 10px;">
         Fu, J.-H., Lu, A.-Y., Madden, N. J., <strong>Wu, C. C.</strong>, Kong, J., Tung, V, <em>et al.</em>
         <em>Communications Materials</em>, 2020. 
         <a href="https://www.nature.com/articles/s43246-020-0041-2" target="_blank" rel="noopener"
@@ -222,7 +257,6 @@
           ></iframe>
         </div>
       </details>
-  </ul>
 </section>
 
 
@@ -230,68 +264,68 @@
 <section id="notes" aria-labelledby="notes-title">
   <h2 id="notes-title">Reading Notes</h2>
 
-      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
-      <p style="margin:4px 0 10px;">
-       Based on the book <em>Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals</em> by Elias M. Stein.
-        <a href="[1]harmonic_analysis_ver3_final_cw.pdf" target="_blank" rel="noopener"
-        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
-      </p>
-  
-      <details>
-        <summary style="cursor:pointer;">▶ Preview</summary>
-        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-          <iframe
-            src="[1]harmonic_analysis_ver3_final_cw.pdf#view=FitH"
-            title="Harmonic Analysis PDF preview"
-            style="width:100%; height:720px; display:block; border:0;"
-          ></iframe>
-        </div>
-      </details>
+  <h3>Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
+  <p style="margin:0 0 10px;">
+    Based on the book <em>Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals</em> by Elias M. Stein.
+    <a href="[1]harmonic_analysis_ver3_final_cw.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
+  </p>
 
-      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Asymptotics: Geometric Optics, Stationary phase, and Homogenization</h3>
-      <p style="margin:4px 0 10px;">
-      Based on the book <em>Princeton Lectures in Analysis: Fourier Analysis</em> by Elias M. Stein and the book <em>Partial Differential Equations</em> by Lawrence C. Evans. 
-        <a href="[2]geometric_optics_ver4_final_cw.pdf" target="_blank" rel="noopener"
-        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
-      </p>
-  
-      <details>
-        <summary style="cursor:pointer;">▶ Preview</summary>
-        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-          <iframe
-            src="[2]geometric_optics_ver4_final_cw.pdf#view=FitH"
-            title="Harmonic Analysis PDF preview"
-            style="width:100%; height:720px; display:block; border:0;"
-          ></iframe>
-        </div>
-      </details>
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="[1]harmonic_analysis_ver3_final_cw.pdf#view=FitH"
+        title="Harmonic Analysis PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
 
-      <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Homogenization and Asymptotic Analysis for Highly Oscillating Periodic Structures</h3>
-      <!-- <p class="meta">Updated 2025-06 · PDF</p> -->
-      <p style="margin:4px 0 10px;">
-        Based on the book <em>Asymptotic Analysis for Periodic Structures</em> by A. Bensoussan, J.-L.Lions, and G.Papanicolaou.
-        <a href="[3]homogenization_ver1_cw.pdf" target="_blank" rel="noopener"
-        style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
-      </p>
-  
-      <details>
-        <summary style="cursor:pointer;">▶ Preview</summary>
-        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-          <iframe
-            src="[3]homogenization_ver1_cw.pdf#view=FitH"
-            title="Harmonic Analysis PDF preview"
-            style="width:100%; height:720px; display:block; border:0;"
-          ></iframe>
-        </div>
-      </details>
-  </ul>
+  <h3>Asymptotics: Geometric Optics, Stationary Phase, and Homogenization</h3>
+  <p style="margin:0 0 10px;">
+    Based on the book <em>Princeton Lectures in Analysis: Fourier Analysis</em> by Elias M. Stein and
+    <em>Partial Differential Equations</em> by Lawrence C. Evans.
+    <a href="[2]geometric_optics_ver4_final_cw.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
+  </p>
+
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="[2]geometric_optics_ver4_final_cw.pdf#view=FitH"
+        title="Geometric Optics PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
+
+  <h3>Homogenization and Asymptotic Analysis for Highly Oscillating Periodic Structures</h3>
+  <p style="margin:0 0 10px;">
+    Based on the book <em>Asymptotic Analysis for Periodic Structures</em> by A. Bensoussan, J.-L. Lions, and G. Papanicolaou.
+    <a href="[3]homogenization_ver1_cw.pdf" target="_blank" rel="noopener"
+    style="background:var(--accent-ink); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
+  </p>
+
+  <details>
+    <summary style="cursor:pointer;">▶ Preview</summary>
+    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="[3]homogenization_ver1_cw.pdf#view=FitH"
+        title="Homogenization PDF preview"
+        style="width:100%; height:720px; display:block; border:0;"
+      ></iframe>
+    </div>
+  </details>
+
 </section>
 
 
 <!-- Selected Coursework-->
 <section id="coursework" aria-labelledby="notes-title">
   <h2 id="notes-title">Selected Coursework</h2>
-  <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Numerical Methods II (MATH-GA.2020) HW5: Fourier Stability Analysis, Boundary Layers on Advection-Diffusion Equation</h3>
+  <h3>Numerical Methods II (MATH-GA.2020) HW5: Fourier Stability Analysis, Boundary Layers on Advection-Diffusion Equation</h3>
   <p style="margin:4px 0 10px;">
     This specific homework is selectd to resonate with the reading notes presented earlier. 
     <a href="NM2_HW5_final_final_cw.pdf" target="_blank" rel="noopener"
@@ -310,7 +344,7 @@
     </div>
   </details>
 
-  <h3 style="margin:0; font-size:1.5rem; font-weight:600;"> Applied Stochastic Analysis (MATH-GA 2704) Final Project:
+  <h3> Applied Stochastic Analysis (MATH-GA 2704) Final Project:
     Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model </h3>
   <p style="margin:4px 0 10px;">
     Based on the paper <em>Anomalous phase separation in a correlated electron system: Machine-learning-enabled large-scale KMC simulations.</em>  
@@ -336,7 +370,7 @@
     </div>
   </details>
 
-  <h3 style="margin:0; font-size:1.5rem; font-weight:600;">Spec Top in CS: Protein Design (CSCI-GA.3033-​111) Final Presentation: Diffusion-Based Generative Models for Protein Structures</h3>
+  <h3>Spec Top in CS: Protein Design (CSCI-GA.3033-​111) Final Presentation: Diffusion-Based Generative Models for Protein Structures</h3>
   <!-- <p class="meta">Updated 2025-06 · PDF</p> -->
   <p style="margin:4px 0 10px;">
     Based on the paper <em>Antigen-Specific Antibody Design and Optimization with Diffusion-Based Generative Models.</em>  
@@ -540,6 +574,3 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
-
-  
