@@ -173,6 +173,19 @@ nav a:hover {
   #coursework details {
     margin-bottom: 1.2rem; /* spacing between blocks */
   }
+
+  /* --- Motto fade-in animation --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 
   
@@ -246,7 +259,7 @@ nav a:hover {
   let active = 0;
 
   const captions = [
-    "Theorist me [seems happier] (New Haven, CT, 2025).",
+    "Theorist me [Seems happier] (New Haven, CT, 2025).",
     "Experimentalist me (Berkeley, CA, 2018)."
   ];
 
@@ -277,6 +290,40 @@ nav a:hover {
   });
 </script>
 </section>
+
+  <!-- Motto Section -->
+  <section id="motto" class="fade-in">
+    <p style="font-family:'Libre Baskerville', Georgia, serif; font-style:italic; font-size:1.3rem; color:var(--muted); margin-bottom:1rem; text-align:center;">
+      “You have infinite potential when you approach your limits.”
+    </p>
+    <p style="font-family:'Times New Roman', serif; font-style:italic; font-size:1.1rem; color:var(--muted); text-align:center;">
+      \[\int_{-\infty}^{\infty}\delta(x-a)f(x)\,dx=f(a)\]
+    </p>
+  </section>
+
+
+  <!-- fade-in JavaScript -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.3 };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+  <!-- MathJax (for rendering LaTeX formulas) -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
 
 
 <!---RESEARCH PROJECTS-->
@@ -634,7 +681,7 @@ nav a:hover {
 
     <footer>
       <span>© <span id="y"></span> Chuanwan Wu</span>
-      <span style="flex-basis:100%; text-align:center; margin-top:12px; font-size:12px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
+      <span style="flex-basis:100%; text-align:center; margin-top:12px; font-size:13px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
         Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way. You helped me steer the boat on my journey — without you, I would not be the person I am today.
       </span>
     </footer>
