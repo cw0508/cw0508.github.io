@@ -66,22 +66,33 @@
   }
   .hero h1 { font-size:clamp(1.6rem,2.5vw,2.2rem); line-height:1.15; margin:0 0 0.8rem; }
   .lead { font-size:clamp(1.2rem,1.6vw,1.4rem); color:var(--muted); }
-  .hero-img {
+  .hero-imgs {
+  display: flex;
+  }
+  .hero-imgs figure {
+    flex: 1;
+  }
+  .hero-imgs img {
+    width: 100%;
+  }
+
+  /* .hero-img {
     width:100%;
     border-radius:1.8rem;
     border:0.1rem solid var(--line);
     box-shadow:var(--shadow);
     object-fit:cover;
-  }
+  } */
   @media (max-width:860px){ .hero { grid-template-columns:1fr; } }
 
-h2 {
+  h2 {
   font-size: clamp(1.8rem, 2vw, 2.2rem);
   margin: 2.4rem 0 1rem;
   color: var(--accent-ink); /* header color */
   border-bottom: 2px solid var(--accent-ink); /* line matches header color */
   padding-bottom: 0.4rem;
 }
+
 
 
   details {
@@ -208,7 +219,25 @@ nav a:hover {
           Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
         </p>
       </div>
-      <img class="hero-img" src="IMG_0402.JPG" alt="A photo of me" style="width:280px;" />
+      <div class="hero-imgs" 
+     style="display:flex; gap:4px; justify-content:center; align-items:center;">
+      <figure style="flex:1; margin:0;">
+        <img src="newme.JPG" alt="New me"
+            style="width:100%; border-radius:14px; border:0.5px solid var(--line);
+                    box-shadow:none; object-fit:cover;">
+        <figcaption style="margin-top:4px; font-size:0.9rem; color:var(--muted);">
+          Theorist me in the middle of mushroom foraging (New Haven, CT, 2025).
+        </figcaption>
+      </figure>
+      <figure style="flex:1; margin:0;">
+        <img src="oldme.JPG" alt="Old me"
+            style="width:100%; border-radius:14px; border:0.5px solid var(--line);
+                    box-shadow:none; object-fit:cover;">
+        <figcaption style="margin-top:4px; font-size:0.9rem; color:var(--muted);">
+          Experimentalist me in the middle of contributing to one of the papers below (Berkeley, CA, 2018).
+        </figcaption>
+      </figure>
+    </div>
     </section>
 
 
