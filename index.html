@@ -42,7 +42,7 @@
     * { box-sizing: border-box; }
     
     html {
-      font-size: 11px; /* adjust site-wide text scale here */
+      font-size: 8.5px; /* adjust site-wide text scale here */
     }
     
     body {
@@ -111,8 +111,12 @@
     }
     
     @media (max-width: 640px) {
-      nav { display: none; }
+      header { flex-wrap: wrap; }
+      nav { width: 100%; display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; }
+      nav a { margin-left: 0; }
     }
+    [hidden] { display: none !important; }
+    nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; }
     
     /* === Hero Section === */
     .hero {
@@ -174,18 +178,38 @@
       font-size: 1.3rem;
     }
     
-    /* === Footer === */
+    /* === Fixed Footer === */
     footer {
-      margin-top: 4rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      margin: 0;
+      padding: 10px 18px;
+      background: var(--bg);
+      border-top: 1px solid var(--line);
       color: var(--muted);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      font-size: 1.3rem;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      font-size: 1.2rem;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.04);
     }
-    
+    .footer-divider {
+      width: min(720px, 100%);
+      height: 1px;
+      background: var(--line);
+    }
+    /* Space for the fixed footer so it doesn't cover the page content. */
+    body { padding-bottom: 145px; }
+    @media (max-width: 640px) {
+      footer { padding: 8px 12px; }
+    }
+
     /* === Theme Toggle === */
     .theme-toggle {
       border: 0.1rem solid var(--line);
@@ -270,15 +294,16 @@
       </button>
       
       <nav aria-label="Primary">
-        <a href="#research">Research & Publications</a>
-        <a href="#notes">Reading Notes</a>
-        <a href="#coursework">Coursework</a>
-        <a href="#projects">Independent Projects</a>
+        <a href="#intro" data-page="intro">Home</a>
+        <a href="#research" data-page="research">Research & Publications</a>
+        <a href="#notes" data-page="notes">Reading Notes</a>
+        <a href="#coursework" data-page="coursework">Coursework</a>
+        <a href="#projects" data-page="projects">Independent Projects</a>
       </nav>
     </header>
 
      <!-- Intro + nice picture -->
-    <section class="hero" id="intro">
+    <section class="hero home-page" id="intro">
       <div>
         <h1>Chuanwan Wu.</h1>
         <p class="lead">
@@ -286,83 +311,53 @@
           People often know me more as Christine. 
         </p>
         <p class="lead">
-          I received my Bachelor's in Chemical & Biomolecular Engineering at <a href="https://chemistry.berkeley.edu/">UC Berkeley's College of Chemistry</a>. 
-          I then worked for a few years at biotech companies. 
-          Now, I just completed my Master's in Scientific Computing at the <a href="https://cims.nyu.edu/dynamic/">Courant Institute at NYU</a>. 
+          I hold a B.S. in Chemical & Biomolecular Engineering at <a href="https://chemistry.berkeley.edu/">UC Berkeley's College of Chemistry</a>, and
+          a M.S. in Scientific Computing at <a href="https://cims.nyu.edu/dynamic/">Courant Institute at NYU</a>. I'm currently a first-year Ph.D. student in mathematics 
+          at <a href="https://www.mathematics.pitt.edu/">University of Pittsburgh</a>. 
         </p>
+
         <p class="lead">
-          My undergraduate research focused on a 2D material, <a href="https://en.wikipedia.org/wiki/Molybdenum_disulfide">Molybdenum disulfide (MoS2)</a>, using <a href="https://en.wikipedia.org/wiki/Electrohydrodynamics">electrohydrodynamics </a> techniques.
-          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung </a> as my advisor, and I also had the privilege to be affiliated with the <a href="https://foundry.lbl.gov/">Molecular Foundry </a> at <a href="https://www.lbl.gov/">Lawerence Berkeley National Laboratory</a>, and the <a href="https://lcls.slac.stanford.edu/">Linac Coherent Light Source</a>
+          As a researcher, I consider myself polymorphic.
+        
+          During my undergraduate years, I focused on a 2D material,
+          <a href="https://en.wikipedia.org/wiki/Molybdenum_disulfide">molybdenum disulfide (MoS2)</a>,
+          using <a href="https://en.wikipedia.org/wiki/Electrohydrodynamics">electrohydrodynamics</a> techniques.
+          I was lucky to have <a href="http://www.vctunglab.org/">Prof. Vincent Tung</a>
+          as my advisor, and I also had the privilege of being affiliated with the
+          <a href="https://foundry.lbl.gov/">Molecular Foundry</a>
+          at <a href="https://www.lbl.gov/">Lawrence Berkeley National Laboratory</a>,
+          and the <a href="https://lcls.slac.stanford.edu/">Linac Coherent Light Source</a>
           at <a href="https://www6.slac.stanford.edu/">SLAC National Accelerator Laboratory</a>.
+        
+          Between my studies, I also gained industry experience as an engineer
+          at biotech companies, working on
+          <a href="https://en.wikipedia.org/wiki/Surface_science">surface chemistry</a>
+          and <a href="https://en.wikipedia.org/wiki/Thin_film">thin-film</a> deposition.
+        
+          At Courant, I was fortunate to work with
+          <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak</a>
+          on developing computational algorithms for
+          <a href="https://epubs.siam.org/doi/10.1137/1.9781611970562">hyperbolic systems of conservation laws</a>
+          from a fluid dynamics perspective.
+
+          My current research interests remain broadly centered on partial differential equations (PDEs).
         </p>
-        <p class="lead">
-          At Courant, I was working with <a href="https://cims.nyu.edu/people/profiles/TABAK_Esteban.html">Prof. Esteban Tabak </a> on developing computational algorithms on <a href = "https://epubs.siam.org/doi/10.1137/1.9781611970562">Hyperbolic Systems of Conservation Laws</a>. 
-      </p>
+        
         <p class="lead">
           Trained as an experimentalist, I migrated to become a theorist, while staying true to the fundamental principles of nature. 🌿
         </p>
       </div>
 
-      <div style="text-align:center;">
-  <div id="photo-swap"
-       style="position:relative; width:280px; overflow:hidden; cursor:pointer; display:inline-block;">
-    <img src="oldme.JPG" alt="Old me" class="photo"
-         style="width:100%; border-radius:18px; border:1px solid var(--line);
-                box-shadow:var(--shadow); position:relative; display:block;
-                transform:translateX(0); transition:transform 0.6s ease;">
-    <img src="newme.JPG" alt="New me" class="photo"
-         style="width:100%; border-radius:18px; border:1px solid var(--line);
-                box-shadow:var(--shadow); position:absolute; top:0; left:0;
-                transform:translateX(100%); transition:transform 0.6s ease;">
-  </div>
-
-<p id="photo-caption"
-   style="margin-top:8px; font-size:0.95rem; color:var(--muted); transition:opacity 0.3s ease;">
-  Experimentalist me (Berkeley, CA, 2018). <br>
-  <span style="font-size:0.85rem; color:var(--accent-ink);">Click the photo to see the new me -></span>
-</p>
+<div class="hero-photo" style="text-align:center; min-width:0;">
+  <img src="newme_Gibbs.JPG" alt="Chuanwan Wu with Josiah Willard Gibbs" style="width:min(280px, 100%); height:auto; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); display:block; margin:0 auto;">
+  <p id="photo-caption" style="margin-top:8px; font-size:1.1rem; color:var(--muted);">
+    Me with <a href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">Josiah Willard Gibbs</a> (New Haven, CT, United States, 2026)
+  </p>
 </div>
-
-<script>
-  const photos = document.querySelectorAll('#photo-swap .photo');
-  const caption = document.getElementById('photo-caption');
-  let active = 0;
-
-  const captions = [
-    "Theorist me [Seems happier] (New Haven, CT, 2025).",
-    "Experimentalist me (Berkeley, CA, 2018)."
-  ];
-
-  document.getElementById('photo-swap').addEventListener('click', () => {
-    const current = photos[active];
-    const next = photos[(active + 1) % photos.length];
-
-    // Slide current out to the left, next in from right
-    current.style.transform = 'translateX(-100%)';
-    next.style.transform = 'translateX(0)';
-
-    // Fade and update caption
-    caption.style.opacity = 0;
-    setTimeout(() => {
-      caption.textContent = captions[(active + 1) % captions.length];
-      caption.style.opacity = 1;
-    }, 300);
-
-    // Reset slide after animation
-    setTimeout(() => {
-      current.style.transition = 'none';
-      current.style.transform = 'translateX(100%)';
-      void current.offsetWidth; // force reflow
-      current.style.transition = 'transform 0.6s ease';
-    }, 600);
-
-    active = (active + 1) % photos.length;
-  });
-</script>
 </section>
 
   <!-- Motto Section -->
-  <section id="motto" class="fade-in">
+  <section id="motto" class="fade-in home-page">
     <p style="font-family:'Libre Baskerville', Georgia, serif; font-style:italic; font-size:1.3rem; color:var(--muted); margin-bottom:1rem; text-align:center;">
       “You have infinite potential when you approach your limits.”
     </p>
@@ -408,15 +403,10 @@
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   </script>
-  
-  
-</body>
-</html>
-
 
 <!---RESEARCH PROJECTS-->
-<section id="research" aria-labelledby="notes-title">
-  <h2 id="notes-title">Research and Publications</h2>
+<section id="research" aria-labelledby="research-title" class="content-page" hidden>
+  <h2 id="research-title">Research and Publications</h2>
       <!-- <h3>
         Homogenization and Uniform Observability in High-Frequency Wave Equations [Undergoing]
       </h3>
@@ -472,7 +462,7 @@
 
 
 <!-- NOTES -->
-<section id="notes" aria-labelledby="notes-title">
+<section id="notes" aria-labelledby="notes-title" class="content-page" hidden>
   <h2 id="notes-title">Reading Notes</h2>
 
   <h3>Harmonic Analysis: Oscillatory Integrals of the First Kind</h3>
@@ -540,8 +530,8 @@
 
 
 <!-- Selected Coursework-->
-<section id="coursework" aria-labelledby="notes-title">
-  <h2 id="notes-title">Selected Coursework</h2>
+<section id="coursework" aria-labelledby="coursework-title" class="content-page" hidden>
+  <h2 id="coursework-title">Selected Coursework</h2>
   <h3>Numerical Methods II (MATH-GA.2020) HW5: Fourier Stability Analysis, Boundary Layers on Advection-Diffusion Equation</h3>
   <p style="margin:4px 0 10px;">
     This specific homework is selectd to resonate with the reading notes presented earlier. 
@@ -618,48 +608,18 @@
       ></iframe>
     </div>
   </details>
-</ul>
 
 </section>
     
     
 <!-- PROJECTS SECTION -->
-<section id="projects" aria-labelledby="projects-title" style="margin-top:40px;">
+<section id="projects" aria-labelledby="projects-title" class="content-page" hidden style="margin-top:40px;">
   <h2 id="projects-title">Selected Independent Projects</h2>
 
   <div class="projects">
 
      <!-- Project 1 -->
      <div class="project">
-      <div class="media" style="position:relative; width:260px; border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow);">
-        <a href="https://www.youtube.com/watch?v=yk14dOOvwMk" target="_blank" rel="noopener">
-          <!-- Real YouTube thumbnail image -->
-          <img src="https://img.youtube.com/vi/yk14dOOvwMk/hqdefault.jpg" alt="Enzyme reaction preview" style="width:100%; display:block;">
-          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-                      background:rgba(255,255,255,0.85); border-radius:50%; width:48px; height:48px;
-                      display:flex; align-items:center; justify-content:center; font-size:1.4rem;
-                      box-shadow:0 2px 6px rgba(0,0,0,0.2); color:black;"></div>
-        </a>
-      </div>
-      
-    <script>
-      document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-        const button = wrapper.querySelector('.play-btn');
-        button.addEventListener('click', () => {
-          const iframe = document.createElement('iframe');
-          iframe.src = "https://www.youtube.com/watch?v=yk14dOOvwMk";
-          iframe.title = "enzyme rxn";
-          iframe.frameBorder = "0";
-          iframe.allow = "autoplay; encrypted-media; picture-in-picture";
-          iframe.allowFullscreen = true;
-          iframe.style.width = "100%";
-          iframe.style.height = "100%";
-          wrapper.innerHTML = ""; // remove image and button
-          wrapper.appendChild(iframe);
-        });
-      });
-    </script>
-     
       <div class="info">
         <h3>Novozymes Enzyme Stability Prediction</h3>
         <p class="meta">Machine Learning · Computational Biology · 2023</p>
@@ -690,45 +650,7 @@
     </div>
 </div>
 
-    <!-- Project 2 -->
-    <!-- <div class="project">
-      <div class="media" style="position:relative; width:260px; border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow);">
-        <a href="https://www.youtube.com/watch?v=LL3kVtc-4vY" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/LL3kVtc-4vY/hqdefault.jpg" alt="KMC preview" style="width:100%; display:block;">
-          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-                      background:rgba(255,255,255,0.85); border-radius:50%; width:48px; height:48px;
-                      display:flex; align-items:center; justify-content:center; font-size:1.4rem;
-                      box-shadow:0 2px 6px rgba(0,0,0,0.2); color:black;"></div>
-        </a>
-      </div> -->
-      
-    <!-- <script>
-      document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-        const button = wrapper.querySelector('.play-btn');
-        button.addEventListener('click', () => {
-          const iframe = document.createElement('iframe');
-          iframe.src = "https://www.youtube.com/embed/LL3kVtc-4vY?autoplay=1&mute=1";
-          iframe.title = "BZ rxn";
-          iframe.frameBorder = "0";
-          iframe.allow = "autoplay; encrypted-media; picture-in-picture";
-          iframe.allowFullscreen = true;
-          iframe.style.width = "100%";
-          iframe.style.height = "100%";
-          wrapper.innerHTML = ""; // remove image and button
-          wrapper.appendChild(iframe);
-        });
-      });
-    </script>
-      -->
-      <!-- <div class="info">
-        <h3>Runge-Kutta 5(RK5) on Belousov-Zhabotinsky (BZ) reaction</h3>
-        <p class="meta">Numerical Method · Nonlinear PDE · Chemical Oscillator · 2025</p>
-          <p> Numerical demonstration of <a href="https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem">Abel-Ruffini theorem</a> via quintic root bypass (explicit RK5) on 
-          <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction">chaotic Belousov-Zhabotinsky (BZ) reaction</a>  [Undergoing].
-        </p>
-      </div>
-    </div> -->
-<!-- </section> -->
+</section>
 
 <style>
 /* --- PROJECTS SECTION --- */
@@ -741,7 +663,7 @@
 
 .project {
   display: grid;
-  grid-template-columns: auto 1fr; /* natural media width + flexible text */
+  grid-template-columns: 1fr; /* full-width project details; video removed */
   gap: 1.5rem; /* small space between video and text */
   align-items: start; /* top-align text */
 }
@@ -807,12 +729,39 @@
 
     <footer>
       <span>© <span id="y"></span> Chuanwan Wu</span>
-      <span style="flex-basis:100%; text-align:center; margin-top:12px; font-size:13px; color:#64748b; line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; font-style:italic;">
+      <span style="text-align:center; font-size:10px; color:var(--muted); line-height:1.45; max-width:720px; margin:0 auto; font-style:italic;">
         Thank you to all my mentors (in industry and academia), friends, and family members who have guided and supported me along the way. You helped me steer the boat on my journey — without you, I would not be the person I am today.
       </span>
     </footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const siteFooter = document.querySelector('footer');
+    const reserveFooterSpace = () => {
+      document.body.style.paddingBottom = (siteFooter.getBoundingClientRect().height + 24) + 'px';
+    };
+    reserveFooterSpace();
+    if ('ResizeObserver' in window) new ResizeObserver(reserveFooterSpace).observe(siteFooter);
+    window.addEventListener('resize', reserveFooterSpace);
+  </script>
+  <script>
+    // Simple client-side navigation; preserves direct links and browser back/forward.
+    function showPage() {
+      const requested = window.location.hash.slice(1);
+      const pages = ['research', 'notes', 'coursework', 'projects'];
+      const page = pages.includes(requested) ? requested : 'intro';
+      document.querySelectorAll('.home-page').forEach(el => { el.hidden = page !== 'intro'; });
+      document.querySelectorAll('.content-page').forEach(el => { el.hidden = el.id !== page; });
+      document.querySelectorAll('nav a[data-page]').forEach(a => {
+        if (a.dataset.page === page) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', showPage);
+    showPage();
+  </script>
+
 </body>
 </html>
