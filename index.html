@@ -26,18 +26,6 @@
       --shadow: 0 8px 24px rgba(2,6,23,.08);
     }
     
-    /* 🌙 Dark Mode */
-    body.dark-mode {
-      --bg: #0f172a;
-      --surface: #1e293b;
-      --fg: #f8fafc;
-      --muted: #94a3b8;
-      --line: #334155;
-      --accent: #38bdf8;
-      --accent-ink: #0284c7;
-      --shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-    
     /* === Global Resets === */
     * { box-sizing: border-box; }
     
@@ -209,16 +197,6 @@
     @media (max-width: 640px) {
       footer { padding: 8px 12px; }
     }
-
-    /* === Theme Toggle === */
-    .theme-toggle {
-      border: 0.1rem solid var(--line);
-      background: var(--surface);
-      color: var(--accent-ink);
-      border-radius: 1.2rem;
-      padding: 0.6rem 1rem;
-      font-size: 1.3rem;
-    }
     
     /* === Research Section === */
     #notes .desc {
@@ -288,10 +266,6 @@
           <div class="title">ChessBunny</div>
         </a> <!-- ✅ Properly close the link here -->
       </div>
-    
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        🌗 Theme
-      </button>
       
       <nav aria-label="Primary">
         <a href="#intro" data-page="intro">Home</a>
@@ -350,8 +324,8 @@
 
 <div class="hero-photo" style="text-align:center; min-width:0;">
   <img src="newme_Gibbs.JPG" alt="Chuanwan Wu with Josiah Willard Gibbs" style="width:min(280px, 100%); height:auto; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); display:block; margin:0 auto;">
-  <p id="photo-caption" style="margin-top:8px; font-size:1.1rem; color:var(--muted);">
-    Me with <a href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">Josiah Willard Gibbs</a> (New Haven, CT, United States, 2026)
+  <p id="photo-caption" style="margin-top:8px; font-size:0.95rem; color:var(--muted);">
+    Me with Josiah Willard Gibbs (New Haven, CT, United States, 2026).
   </p>
 </div>
 </section>
@@ -388,22 +362,6 @@
   <!-- MathJax (for rendering LaTeX formulas) -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-    const body = document.body;
-  
-    // Load saved preference
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark-mode');
-    }
-  
-    toggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDark = body.classList.contains('dark-mode');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-  </script>
-
 <!---RESEARCH PROJECTS-->
 <section id="research" aria-labelledby="research-title" class="content-page" hidden>
   <h2 id="research-title">Research and Publications</h2>
@@ -425,18 +383,8 @@
         style="background:#3ba9f3; color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Paper Link]</a>
       </p>
 
-      <details>
-        <summary style="cursor:pointer;">▶ Preview</summary>
-        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-          <iframe
-            src="paper2.pdf"
-            title="Harmonic Analysis PDF preview"
-            style="width:100%; height:720px; display:block; border:0;"
-          ></iframe>
-        </div>
-      </details>
 
-      <h3>
+<h3>
         Additive manufacturing assisted van der Waals integration of 3D/3D hierarchically functional nanostructures
       </h3>
       <p style="margin:0 0 10px;">
@@ -448,16 +396,7 @@
         style="background:#0c8cd3; color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:4px;">[Presentation]</a>
       </p>
 
-      <details>
-        <summary style="cursor:pointer;">▶ Preview</summary>
-        <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-          <iframe
-            src="paper1.pdf"
-            title="Harmonic Analysis PDF preview"
-            style="width:100%; height:720px; display:block; border:0;"
-          ></iframe>
-        </div>
-      </details>
+
 </section>
 
 
@@ -474,18 +413,8 @@
           font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
   </p>
 
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="[1]harmonic_analysis_ver3_final_cw.pdf#view=FitH"
-        title="Harmonic Analysis PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
-  <h3>Asymptotics: Geometric Optics, Stationary Phase, and Homogenization</h3>
+<h3>Asymptotics: Geometric Optics, Stationary Phase, and Homogenization</h3>
   <p style="margin:0 0 10px;">
     Based on the book <em>Princeton Lectures in Analysis: Fourier Analysis</em> by Elias M. Stein and
     <em>Partial Differential Equations</em> by Lawrence C. Evans.
@@ -495,18 +424,8 @@
           font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
   </p>
 
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="[2]geometric_optics_ver4_final_cw.pdf#view=FitH"
-        title="Geometric Optics PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
-  <h3>Homogenization and Asymptotic Analysis for Highly Oscillating Periodic Structures</h3>
+<h3>Homogenization and Asymptotic Analysis for Highly Oscillating Periodic Structures</h3>
   <p style="margin:0 0 10px;">
     Based on the book <em>Asymptotic Analysis for Periodic Structures</em> by A. Bensoussan, J.-L. Lions, and G. Papanicolaou.
     <a href="[3]homogenization_ver1_cw.pdf" target="_blank" rel="noopener"
@@ -515,16 +434,6 @@
           font-size:0.95rem; margin-left:4px;">[Open in New Tab]</a>
   </p>
 
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="[3]homogenization_ver1_cw.pdf#view=FitH"
-        title="Homogenization PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
 </section>
 
@@ -542,18 +451,8 @@
     [Open in New Tab]
   </a>
   </p>
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="NM2_HW5_final_final_cw.pdf#view=FitH"
-        title="Harmonic Analysis PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
-  <h3> Applied Stochastic Analysis (MATH-GA 2704) Final Project:
+<h3> Applied Stochastic Analysis (MATH-GA 2704) Final Project:
     Kinetic Monte Carlo (KMC) Simulations on Falicov-Kimball Model </h3>
   <p style="margin:4px 0 10px;">
     Based on the paper <em>Anomalous phase separation in a correlated electron system: Machine-learning-enabled large-scale KMC simulations.</em>  
@@ -570,18 +469,8 @@
   </a>
   </p>
 
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="ASA_final_project_final_ver.pdf#view=FitH"
-        title="Harmonic Analysis PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
-  <h3>Spec Top in CS: Protein Design (CSCI-GA.3033-​111) Final Presentation: Diffusion-Based Generative Models for Protein Structures</h3>
+<h3>Spec Top in CS: Protein Design (CSCI-GA.3033-​111) Final Presentation: Diffusion-Based Generative Models for Protein Structures</h3>
   <!-- <p class="meta">Updated 2025-06 · PDF</p> -->
   <p style="margin:4px 0 10px;">
     Based on the paper <em>Antigen-Specific Antibody Design and Optimization with Diffusion-Based Generative Models.</em>  
@@ -598,16 +487,6 @@
   </a>
   </p>
 
-  <details>
-    <summary style="cursor:pointer;">▶ Preview</summary>
-    <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-      <iframe
-        src="Protein_design_pre_12022024.pdf#view=FitH"
-        title="Harmonic Analysis PDF preview"
-        style="width:100%; height:720px; display:block; border:0;"
-      ></iframe>
-    </div>
-  </details>
 
 </section>
     
@@ -636,17 +515,8 @@
         style="background:var(--accent); color:white; padding:2px 8px; border-radius:6px; text-decoration:none; font-size:0.95rem; margin-left:6px;">
         [Code]
         </a>
-        <details>
-          <summary style="cursor:pointer;">▶ Preview</summary>
-          <div style="margin-top:10px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
-            <iframe
-              src="enzyme_stability_pre_cw.pdf#view=FitH"
-              title="Enzyme stability PDF preview"
-              style="width:100%; height:720px; display:block; border:0;"
-            ></iframe>
-          </div>
-        </details>
-      </div>
+
+</div>
     </div>
 </div>
 
@@ -765,3 +635,4 @@
 
 </body>
 </html>
+
